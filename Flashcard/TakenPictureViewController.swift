@@ -55,6 +55,10 @@ class TakenPictureViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
         
+        for view in cell.contentView.subviews {
+            view.removeFromSuperview()
+        }
+        
         /*for (UIView *view in cell.contentView.subviews) {
             [view removeFromSuperview];
         }

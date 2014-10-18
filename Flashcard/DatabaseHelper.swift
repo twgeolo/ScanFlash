@@ -11,7 +11,7 @@ import UIKit
 class DatabaseHelper: NSObject {
     class func executeQuery(queryString: String) -> FMResultSet {
         let db: FMDatabase = FMDatabase(path: NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent("Flashcards.db"))
-        var resultSet: FMResultSet
+        var resultSet: FMResultSet = FMResultSet()
         if (db.open()) {
             resultSet = db.executeQuery(queryString, withArgumentsInArray: nil)
         }
@@ -21,7 +21,7 @@ class DatabaseHelper: NSObject {
     
     class func executeUpdate(updateString: String) -> Bool {
         let db: FMDatabase = FMDatabase(path: NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent("Flashcards.db"))
-        var success: Bool
+        var success: Bool = false
         if (db.open()) {
             success = db.executeStatements(updateString)
         }

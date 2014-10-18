@@ -32,6 +32,7 @@
 		5E36FF6619F2D9780001ECC1 /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF6119F2D9780001ECC1 /* SCLButton.m */; };
 		5E36FF6819F2D9AF0001ECC1 /* TakenPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF6719F2D9AF0001ECC1 /* TakenPictureViewController.swift */; };
 		5E36FF6A19F2DB6D0001ECC1 /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF6919F2DB6D0001ECC1 /* DatabaseHelper.swift */; };
+		5E36FF6E19F2DD960001ECC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E36FF6D19F2DD960001ECC1 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		5E36FF6119F2D9780001ECC1 /* SCLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLButton.m; sourceTree = "<group>"; };
 		5E36FF6719F2D9AF0001ECC1 /* TakenPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakenPictureViewController.swift; sourceTree = "<group>"; };
 		5E36FF6919F2DB6D0001ECC1 /* DatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
+		5E36FF6D19F2DD960001ECC1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E36FF6E19F2DD960001ECC1 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +234,7 @@
 		5E36FF6B19F2DB7E0001ECC1 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				5E36FF6D19F2DD960001ECC1 /* libsqlite3.dylib */,
 				5E0324BA19F2C48400DA7E19 /* ECSlidingViewController */,
 				5E36FF5819F2D9780001ECC1 /* SCLAlertView */,
 				5E36FF4719F2D9640001ECC1 /* FMDB */,
