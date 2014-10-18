@@ -28,7 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UINa
         
         viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "SideMenu"), style: UIBarButtonItemStyle.Done, target: self, action: "showMenu")
         
+<<<<<<< HEAD
          viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Camera"), style: UIBarButtonItemStyle.Done, target: self, action: "showCam")
+=======
+        viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Camera"), style: UIBarButtonItemStyle.Done, target: self, action: "showCam")
+>>>>>>> bb66bb5a11375a0e445af33701dea776f10050b4
         
         let navigationController: UINavigationController = createNavController(viewController)
         slidingViewController = ECSlidingViewController(topViewController: navigationController)
