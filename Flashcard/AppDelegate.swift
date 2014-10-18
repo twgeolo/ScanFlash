@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UINavigationControllerDelegate {
 
     var window: UIWindow?
     var open: Bool = false
@@ -24,7 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         let viewController : ListViewController = ListViewController()
+        
         viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "SideMenu"), style: UIBarButtonItemStyle.Done, target: self, action: "showMenu")
+        
+         viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Camera"), style: UIBarButtonItemStyle.Done, target: self, action: "showCam")
+        
         let navigationController: UINavigationController = createNavController(viewController)
         slidingViewController = ECSlidingViewController(topViewController: navigationController)
         
@@ -55,6 +59,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate {
             open = true
             slidingViewController?.anchorTopViewToRightAnimated(true)
         }
+    }
+    
+    func showCam () {
+    
+        
     }
     
     // MARK: - Table view delegate
