@@ -20,6 +20,7 @@
 		5E0324CD19F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324C719F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m */; };
 		5E0324D019F2C77100DA7E19 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */; };
 		5E0324D219F2C77B00DA7E19 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324D119F2C77B00DA7E19 /* ListViewController.swift */; };
+		5E36FF4619F2D4780001ECC1 /* TakenPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF4519F2D4780001ECC1 /* TakenPictureViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		5E0324CE19F2C5B800DA7E19 /* FlashCard-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FlashCard-Bridging-Header.h"; sourceTree = "<group>"; };
 		5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		5E0324D119F2C77B00DA7E19 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		5E36FF4519F2D4780001ECC1 /* TakenPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakenPictureViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				5E0324CE19F2C5B800DA7E19 /* FlashCard-Bridging-Header.h */,
 				5E0324BA19F2C48400DA7E19 /* ECSlidingViewController */,
 				5E03249A19F2C39200DA7E19 /* AppDelegate.swift */,
+				5E36FF4519F2D4780001ECC1 /* TakenPictureViewController.swift */,
 				5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */,
 				5E0324D119F2C77B00DA7E19 /* ListViewController.swift */,
 				5E03249C19F2C39200DA7E19 /* ViewController.swift */,
@@ -265,6 +268,7 @@
 				5E0324CD19F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m in Sources */,
 				5E0324D019F2C77100DA7E19 /* SideMenuViewController.swift in Sources */,
 				5E0324D219F2C77B00DA7E19 /* ListViewController.swift in Sources */,
+				5E36FF4619F2D4780001ECC1 /* TakenPictureViewController.swift in Sources */,
 				5E0324C919F2C48400DA7E19 /* ECSlidingAnimationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
