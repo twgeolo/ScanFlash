@@ -11,17 +11,19 @@ import UIKit
 let reuseIdentifier = "Cell"
 
 class TakenPictureViewController: UICollectionViewController {
+    
+    var pictureName: NSMutableArray = NSMutableArray()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
+        
         self.collectionView?.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSizeMake(70, 103)
+        layout.sectionInset = UIEdgeInsetsMake(30, 30, 30, 30)
+        layout.scrollDirection = UICollectionViewScrollDirection.Vertical
+        self.collectionView?.collectionViewLayout = layout
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,53 +44,52 @@ class TakenPictureViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        //#warning Incomplete method implementation -- Return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //#warning Incomplete method implementation -- Return the number of items in the section
         return 0
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
-    
-        // Configure the cell
+        var cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
+        
+        /*for (UIView *view in cell.contentView.subviews) {
+            [view removeFromSuperview];
+        }
+        
+        Person *friend = [friendsAry objectAtIndex:indexPath.row];
+        UIImageView *imageView;
+        if (friend.imageData!=(NSData *)[NSNull null] && friend.imageData!=nil) {
+            imageView = [[UIImageView alloc] initWithImage:[ApplicationDelegate makeCircularImage:[UIImage imageWithData:friend.imageData] withFrame:CGRectMake(0, 0, 70, 70)]];
+        } else {
+            if ([friend.gender isEqualToString:@"M"]) {
+                imageView = [[UIImageView alloc] initWithImage:[ApplicationDelegate makeCircularImage:[UIImage imageNamed:@"Male"] withFrame:CGRectMake(0, 0, 70, 70)]];
+            } else {
+                imageView = [[UIImageView alloc] initWithImage:[ApplicationDelegate makeCircularImage:[UIImage imageNamed:@"Female"] withFrame:CGRectMake(0, 0, 70, 70)]];
+            }
+        }
+        imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+        imageView.layer.borderWidth = 1.5;
+        imageView.layer.cornerRadius = 35;
+        UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 70, 70, 23)];
+        nameLabel.text = [[friend.displayName componentsSeparatedByString:@" "] objectAtIndex:0];
+        nameLabel.textAlignment = NSTextAlignmentCenter;
+        nameLabel.textColor = [UIColor whiteColor];
+        nameLabel.font = [UIFont boldSystemFontOfSize:14];
+        
+        [cell.contentView addSubview:imageView];
+        [cell.contentView addSubview:nameLabel];
+        cell.backgroundColor = [UIColor clearColor];*/
     
         return cell
     }
 
     // MARK: UICollectionViewDelegate
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    func collectionView(collectionView: UICollectionView!, shouldHighlightItemAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        return true
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        // Did select
     }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    func collectionView(collectionView: UICollectionView!, shouldSelectItemAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    func collectionView(collectionView: UICollectionView!, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        return false
-    }
-
-    func collectionView(collectionView: UICollectionView!, canPerformAction action: String!, forItemAtIndexPath indexPath: NSIndexPath!, withSender sender: AnyObject!) -> Bool {
-        return false
-    }
-
-    func collectionView(collectionView: UICollectionView!, performAction action: String!, forItemAtIndexPath indexPath: NSIndexPath!, withSender sender: AnyObject!) {
-    
-    }
-    */
 
 }

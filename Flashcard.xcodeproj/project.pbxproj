@@ -20,7 +20,18 @@
 		5E0324CD19F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324C719F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m */; };
 		5E0324D019F2C77100DA7E19 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */; };
 		5E0324D219F2C77B00DA7E19 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324D119F2C77B00DA7E19 /* ListViewController.swift */; };
-		5E36FF4619F2D4780001ECC1 /* TakenPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF4519F2D4780001ECC1 /* TakenPictureViewController.swift */; };
+		5E36FF5319F2D9640001ECC1 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF4919F2D9640001ECC1 /* FMDatabase.m */; };
+		5E36FF5419F2D9640001ECC1 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF4B19F2D9640001ECC1 /* FMDatabaseAdditions.m */; };
+		5E36FF5519F2D9640001ECC1 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF4D19F2D9640001ECC1 /* FMDatabasePool.m */; };
+		5E36FF5619F2D9640001ECC1 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF4F19F2D9640001ECC1 /* FMDatabaseQueue.m */; };
+		5E36FF5719F2D9640001ECC1 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF5219F2D9640001ECC1 /* FMResultSet.m */; };
+		5E36FF6219F2D9780001ECC1 /* git.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E36FF5919F2D9780001ECC1 /* git.png */; };
+		5E36FF6319F2D9780001ECC1 /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF5B19F2D9780001ECC1 /* SCLAlertView.m */; };
+		5E36FF6419F2D9780001ECC1 /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF5D19F2D9780001ECC1 /* SCLAlertViewResponder.m */; };
+		5E36FF6519F2D9780001ECC1 /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF5F19F2D9780001ECC1 /* SCLAlertViewStyleKit.m */; };
+		5E36FF6619F2D9780001ECC1 /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF6119F2D9780001ECC1 /* SCLButton.m */; };
+		5E36FF6819F2D9AF0001ECC1 /* TakenPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF6719F2D9AF0001ECC1 /* TakenPictureViewController.swift */; };
+		5E36FF6A19F2DB6D0001ECC1 /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF6919F2DB6D0001ECC1 /* DatabaseHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +70,28 @@
 		5E0324CE19F2C5B800DA7E19 /* FlashCard-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FlashCard-Bridging-Header.h"; sourceTree = "<group>"; };
 		5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		5E0324D119F2C77B00DA7E19 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		5E36FF4519F2D4780001ECC1 /* TakenPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakenPictureViewController.swift; sourceTree = "<group>"; };
+		5E36FF4819F2D9640001ECC1 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		5E36FF4919F2D9640001ECC1 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		5E36FF4A19F2D9640001ECC1 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		5E36FF4B19F2D9640001ECC1 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		5E36FF4C19F2D9640001ECC1 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		5E36FF4D19F2D9640001ECC1 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		5E36FF4E19F2D9640001ECC1 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		5E36FF4F19F2D9640001ECC1 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		5E36FF5019F2D9640001ECC1 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		5E36FF5119F2D9640001ECC1 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		5E36FF5219F2D9640001ECC1 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		5E36FF5919F2D9780001ECC1 /* git.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = git.png; sourceTree = "<group>"; };
+		5E36FF5A19F2D9780001ECC1 /* SCLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertView.h; sourceTree = "<group>"; };
+		5E36FF5B19F2D9780001ECC1 /* SCLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertView.m; sourceTree = "<group>"; };
+		5E36FF5C19F2D9780001ECC1 /* SCLAlertViewResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertViewResponder.h; sourceTree = "<group>"; };
+		5E36FF5D19F2D9780001ECC1 /* SCLAlertViewResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewResponder.m; sourceTree = "<group>"; };
+		5E36FF5E19F2D9780001ECC1 /* SCLAlertViewStyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertViewStyleKit.h; sourceTree = "<group>"; };
+		5E36FF5F19F2D9780001ECC1 /* SCLAlertViewStyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewStyleKit.m; sourceTree = "<group>"; };
+		5E36FF6019F2D9780001ECC1 /* SCLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLButton.h; sourceTree = "<group>"; };
+		5E36FF6119F2D9780001ECC1 /* SCLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLButton.m; sourceTree = "<group>"; };
+		5E36FF6719F2D9AF0001ECC1 /* TakenPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakenPictureViewController.swift; sourceTree = "<group>"; };
+		5E36FF6919F2DB6D0001ECC1 /* DatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +133,14 @@
 		5E03249719F2C39200DA7E19 /* Flashcard */ = {
 			isa = PBXGroup;
 			children = (
-				5E0324CE19F2C5B800DA7E19 /* FlashCard-Bridging-Header.h */,
-				5E0324BA19F2C48400DA7E19 /* ECSlidingViewController */,
+				5E36FF6B19F2DB7E0001ECC1 /* Libraries */,
 				5E03249A19F2C39200DA7E19 /* AppDelegate.swift */,
+				5E36FF6C19F2DB870001ECC1 /* Helper */,
 				5E03249C19F2C39200DA7E19 /* ViewController.swift */,
+				5E36FF6719F2D9AF0001ECC1 /* TakenPictureViewController.swift */,
 				5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */,
 				5E0324D119F2C77B00DA7E19 /* ListViewController.swift */,
 				5E0324A119F2C39200DA7E19 /* Images.xcassets */,
-				5E0324A319F2C39200DA7E19 /* LaunchScreen.xib */,
 				5E03249819F2C39200DA7E19 /* Supporting Files */,
 			);
 			path = Flashcard;
@@ -117,6 +149,8 @@
 		5E03249819F2C39200DA7E19 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5E0324CE19F2C5B800DA7E19 /* FlashCard-Bridging-Header.h */,
+				5E0324A319F2C39200DA7E19 /* LaunchScreen.xib */,
 				5E03249919F2C39200DA7E19 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -157,6 +191,59 @@
 				5E0324C719F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m */,
 			);
 			path = ECSlidingViewController;
+			sourceTree = "<group>";
+		};
+		5E36FF4719F2D9640001ECC1 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				5E36FF4819F2D9640001ECC1 /* FMDatabase.h */,
+				5E36FF4919F2D9640001ECC1 /* FMDatabase.m */,
+				5E36FF4A19F2D9640001ECC1 /* FMDatabaseAdditions.h */,
+				5E36FF4B19F2D9640001ECC1 /* FMDatabaseAdditions.m */,
+				5E36FF4C19F2D9640001ECC1 /* FMDatabasePool.h */,
+				5E36FF4D19F2D9640001ECC1 /* FMDatabasePool.m */,
+				5E36FF4E19F2D9640001ECC1 /* FMDatabaseQueue.h */,
+				5E36FF4F19F2D9640001ECC1 /* FMDatabaseQueue.m */,
+				5E36FF5019F2D9640001ECC1 /* FMDB.h */,
+				5E36FF5119F2D9640001ECC1 /* FMResultSet.h */,
+				5E36FF5219F2D9640001ECC1 /* FMResultSet.m */,
+			);
+			name = FMDB;
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		5E36FF5819F2D9780001ECC1 /* SCLAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				5E36FF5919F2D9780001ECC1 /* git.png */,
+				5E36FF5A19F2D9780001ECC1 /* SCLAlertView.h */,
+				5E36FF5B19F2D9780001ECC1 /* SCLAlertView.m */,
+				5E36FF5C19F2D9780001ECC1 /* SCLAlertViewResponder.h */,
+				5E36FF5D19F2D9780001ECC1 /* SCLAlertViewResponder.m */,
+				5E36FF5E19F2D9780001ECC1 /* SCLAlertViewStyleKit.h */,
+				5E36FF5F19F2D9780001ECC1 /* SCLAlertViewStyleKit.m */,
+				5E36FF6019F2D9780001ECC1 /* SCLButton.h */,
+				5E36FF6119F2D9780001ECC1 /* SCLButton.m */,
+			);
+			path = SCLAlertView;
+			sourceTree = "<group>";
+		};
+		5E36FF6B19F2DB7E0001ECC1 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				5E0324BA19F2C48400DA7E19 /* ECSlidingViewController */,
+				5E36FF5819F2D9780001ECC1 /* SCLAlertView */,
+				5E36FF4719F2D9640001ECC1 /* FMDB */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		5E36FF6C19F2DB870001ECC1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				5E36FF6919F2DB6D0001ECC1 /* DatabaseHelper.swift */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E36FF6219F2D9780001ECC1 /* git.png in Resources */,
 				5E0324A519F2C39200DA7E19 /* LaunchScreen.xib in Resources */,
 				5E0324A219F2C39200DA7E19 /* Images.xcassets in Resources */,
 			);
@@ -258,16 +346,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E36FF6819F2D9AF0001ECC1 /* TakenPictureViewController.swift in Sources */,
 				5E0324CA19F2C48400DA7E19 /* ECSlidingInteractiveTransition.m in Sources */,
 				5E03249D19F2C39200DA7E19 /* ViewController.swift in Sources */,
 				5E0324CC19F2C48400DA7E19 /* ECSlidingViewController.m in Sources */,
+				5E36FF5319F2D9640001ECC1 /* FMDatabase.m in Sources */,
 				5E0324CB19F2C48400DA7E19 /* ECSlidingSegue.m in Sources */,
+				5E36FF6519F2D9780001ECC1 /* SCLAlertViewStyleKit.m in Sources */,
+				5E36FF6419F2D9780001ECC1 /* SCLAlertViewResponder.m in Sources */,
+				5E36FF5619F2D9640001ECC1 /* FMDatabaseQueue.m in Sources */,
+				5E36FF6619F2D9780001ECC1 /* SCLButton.m in Sources */,
+				5E36FF6A19F2DB6D0001ECC1 /* DatabaseHelper.swift in Sources */,
+				5E36FF5719F2D9640001ECC1 /* FMResultSet.m in Sources */,
 				5E03249B19F2C39200DA7E19 /* AppDelegate.swift in Sources */,
 				5E0324C819F2C48400DA7E19 /* ECPercentDrivenInteractiveTransition.m in Sources */,
 				5E0324CD19F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m in Sources */,
+				5E36FF5419F2D9640001ECC1 /* FMDatabaseAdditions.m in Sources */,
 				5E0324D019F2C77100DA7E19 /* SideMenuViewController.swift in Sources */,
 				5E0324D219F2C77B00DA7E19 /* ListViewController.swift in Sources */,
-				5E36FF4619F2D4780001ECC1 /* TakenPictureViewController.swift in Sources */,
+				5E36FF5519F2D9640001ECC1 /* FMDatabasePool.m in Sources */,
+				5E36FF6319F2D9780001ECC1 /* SCLAlertView.m in Sources */,
 				5E0324C919F2C48400DA7E19 /* ECSlidingAnimationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,5 +10,6 @@
 #define Flashcard_FlashCard_Bridging_Header_h
 
 #import "ECSlidingViewController.h"
+#import "FMDB.h"
 
 #endif
