@@ -9,13 +9,19 @@
 import UIKit
 
 class Card: NSObject {
+    var cardId: Int
+    var listId: Int
     var text: String
     var foreign: String
-    var pictureURL: NSURL
+    var pictureId: Int
+    var favorite: Int
     
-    init(text: String, foreign: String, pictureURL: NSURL) {
+    init(cardId: Int, listId: Int, text: String, foreign: String, pictureId: Int, favorite: Int) {
+        self.cardId = cardId
+        self.listId = listId
         self.text = text
         self.foreign = foreign
-        self.pictureURL = pictureURL
+        self.pictureId = pictureId
+        self.favorite = favorite
     }
 }

@@ -9,6 +9,48 @@
 import UIKit
 
 class ListViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var cardArray: [Card]!
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    //(id INTEGER PRIMARY KEY, englishText TEXT, foreignText TEXT, favorite INT, listId INTEGER, PicId INTEGER)
+    
+    init(id: Int){
+        super.init()
+        switch id{
+        case 0:
+            // all
+                let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, listId, englishText, foreignText, PicId, favorite FROM Cards")
+                while (rs.next()) {
+                    
+                    var cardTmp : Card = Card(cardId: Int(rs.intForColumnIndex(0)), listId: Int(rs.intForColumnIndex(1)), text: rs.objectForColumnIndex(2) as String, foreign: rs.objectForColumnIndex(3) as String, pictureId: Int(rs.intForColumnIndex(4)), favorite: Int(rs.intForColumnIndex(5)))
+                    self.cardArray.append(cardTmp)
+                }
+                break;
+        case 1:
+            //fav
+            let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, listId, englishText, foreignText, PicId, favorite FROM Cards WHERE Cards.favorite = 1")
+            while (rs.next()) {
+                
+                var cardTmp : Card = Card(cardId: Int(rs.intForColumnIndex(0)), listId: Int(rs.intForColumnIndex(1)), text: rs.objectForColumnIndex(2) as String, foreign: rs.objectForColumnIndex(3) as String, pictureId: Int(rs.intForColumnIndex(4)), favorite: Int(rs.intForColumnIndex(5)))
+                self.cardArray.append(cardTmp)
+            }
+            break;
+        case 2:
+            //recommended
+            break;
+        default:
+            let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, listId, englishText, foreignText, PicId, favorite FROM Cards WHERE listId = \(id-3)")
+            while (rs.next()) {
+                
+                var cardTmp : Card = Card(cardId: Int(rs.intForColumnIndex(0)), listId: Int(rs.intForColumnIndex(1)), text: rs.objectForColumnIndex(2) as String, foreign: rs.objectForColumnIndex(3) as String, pictureId: Int(rs.intForColumnIndex(4)), favorite: Int(rs.intForColumnIndex(5)))
+                self.cardArray.append(cardTmp)
+            }
+            break;
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
