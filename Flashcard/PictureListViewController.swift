@@ -18,7 +18,7 @@ class PictureListViewController: UITableViewController {
         let indicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake((UIScreen.mainScreen().bounds.size.width - 44) / 2, 85, 44, 44))
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, text, foreign FROM Cards")
+            let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, englishText, foreignText FROM Cards")
             while (rs.next()) {
                 let c: Card = Card(text: rs.objectForColumnIndex(1) as String, foreign: rs.objectForColumnIndex(2) as String, pictureURL: NSURL(string: "\(rs.objectForColumnIndex(0)).jpg"))
                 self.cardAry.addObject(c)

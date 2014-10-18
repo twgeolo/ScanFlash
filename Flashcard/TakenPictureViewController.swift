@@ -24,7 +24,7 @@ class TakenPictureViewController: UICollectionViewController {
         layout.scrollDirection = UICollectionViewScrollDirection.Vertical
         self.collectionView?.collectionViewLayout = layout
         
-        let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id FROM Picture")
+        let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id FROM Cards")
         while (rs.next()) {
             self.pictureName.addObject("\(rs.objectForColumnIndex(0))")
         }

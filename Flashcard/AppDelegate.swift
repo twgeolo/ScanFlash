@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate {
     var rowNames: [String]?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        DatabaseHelper.executeUpdate("create table if not exists Cards (id INTEGER PRIMARY KEY, englishText TEXT, foreignText TEXT")
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         let viewController : ListViewController = ListViewController()
