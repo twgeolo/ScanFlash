@@ -9,15 +9,16 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAlertViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     var sourceType: UIImagePickerControllerSourceType?
     var window: UIWindow?
     var open: Bool = false
-    
     var slidingViewController: ECSlidingViewController?
     var topViewSnapshot: UIView?
     var rowNames: [String]?
+    var homeButton: UIButton!
+    var addButton: UIButton!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         DatabaseHelper.executeUpdate("create table if not exists Cards (id INTEGER PRIMARY KEY, englishText TEXT, foreignText TEXT, favorite INT)")
@@ -43,6 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UINa
         
         self.window?.rootViewController = slidingViewController
         self.window?.makeKeyAndVisible()
+        
+        
+        
         return true
     }
     
@@ -71,6 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UINa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let realNames = rowNames {
             var navigationController: UINavigationController?
+            
             
             /*
             if (realNames[indexPath.row] as NSString).isEqualToString("MyMail") {
@@ -114,51 +119,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UINa
             (slidingViewController?.topViewController as UINavigationController).viewControllers[0].navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "SideMenu"), style: .Done, target: self, action: "showMenu")
             open = false
             slidingViewController?.resetTopViewAnimated(true)
+            slidingViewController?.viewWillAppear(true);
         }
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 180
+        return 160
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView: UIView = UIView(frame: CGRectMake(0, 0, 250, 180))
-        let imageView: UIImageView = UIImageView(image: UIImage(named: "PU_Logo"))
-        imageView.contentMode = UIViewContentMode.ScaleAspectFit
-        imageView.frame = CGRectMake(30, 50, 210, 80)
-        headerView.addSubview(imageView)
-        headerView.backgroundColor = UIColor(red: 44.0/255.0, green: 44.0/255.0, blue: 44.0/255.0, alpha: 1)
-        let bottomLayer: CALayer = CALayer()
-        bottomLayer.frame = CGRectMake(0, 180-2, 1000, 2)
-        bottomLayer.backgroundColor = UIColor(white: 0.5, alpha: 0.6).CGColor
-        headerView.layer.addSublayer(bottomLayer)
+        
+        let headerView: UIView = UIView(frame: CGRectMake(0, 0, 280, 160))
+        
+        let homeBtnView: UIView = UIView(frame: CGRectMake(0, 0, 276, 110 ))
+        let homeBtn: UIButton = UIButton(frame: CGRectMake(0, 0, 276, 110 ))
+        homeButton = homeBtn
+        homeButton.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        homeButton.setTitle("FLASHCARD", forState: UIControlState.Normal)
+        homeButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        homeButton.titleLabel?.font = UIFont.systemFontOfSize(40.0)
+        homeButton.titleLabel?.textAlignment = NSTextAlignment.Center
+        homeButton.addTarget(UIApplication.sharedApplication().delegate as AppDelegate, action: "homeButtonPressed",forControlEvents: UIControlEvents.TouchUpInside)
+        homeBtnView.addSubview(homeBtn)
+        
+        let toolbar: UIToolbar = UIToolbar(frame: CGRectMake(0,110,276,50));
+        toolbar.tintColor = UIColor.blackColor()
+        toolbar.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        let addBtn: UIBarButtonItem = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Plain, target: self, action: "addCategory")
+        let att: NSDictionary = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Bold", size: 30)]
+        addBtn.setTitleTextAttributes(att, forState: UIControlState.Normal)
+        let space: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        toolbar.items = [space,addBtn,space]
+        
+        headerView.addSubview(toolbar)
+        headerView.addSubview(homeBtnView)
         return headerView
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 50;
-    }
-    
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView: UIView = UIView(frame: CGRectMake(0, 0, 250, 50))
-        footerView.backgroundColor = UIColor(red: 44.0/255.0, green: 44.0/255.0, blue: 44.0/255.0, alpha: 1)
-        let settingBtn: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
-        settingBtn.tintColor = UIColor.whiteColor()
-        settingBtn.frame = CGRectMake(0, 2, 48, 48)
-        settingBtn.setImage(UIImage(named: "Settings").imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState: UIControlState.Normal)
-        footerView.addSubview(settingBtn)
-        let copyrightLbl: UILabel = UILabel(frame: CGRectMake(48, 2, 250-48, 48))
-        copyrightLbl.text = "© PURDUE UNIVERSITY"
-        copyrightLbl.textColor = UIColor.whiteColor()
-        copyrightLbl.textAlignment = NSTextAlignment.Right
-        copyrightLbl.font = UIFont(name: "Avenir-Book", size: 15)
-        footerView.addSubview(copyrightLbl)
-        let upperLayer: CALayer = CALayer()
-        upperLayer.frame = CGRectMake(0, 0, 1000, 2)
-        upperLayer.backgroundColor = UIColor(white: 0.5, alpha: 0.6).CGColor
-        footerView.layer.addSublayer(upperLayer)
-        return footerView
-    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -181,7 +178,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UINa
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    func homeButtonPressed(){
+        showMenu()
+    }
+    
+    func addCategory(){
+        let alertview: UIAlertView = UIAlertView(title: "Add Category", message: "Enter Category Name:", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Add")
+        alertview.alertViewStyle = UIAlertViewStyle.PlainTextInput
+        alertview.show()
+    }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        let s = alertView.buttonTitleAtIndex(buttonIndex)
+        if (s != "Cancel"){
+            let categoryName = alertView.textFieldAtIndex(0)?.text
+            
+        }
+    }
 }
 
