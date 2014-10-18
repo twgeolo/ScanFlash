@@ -16,6 +16,7 @@ class PictureListViewController: UITableViewController {
         super.viewDidLoad()
         
         let indicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake((UIScreen.mainScreen().bounds.size.width - 44) / 2, 85, 44, 44))
+        self.tableView.addSubview(indicator)
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, englishText, foreignText FROM Cards")
@@ -24,6 +25,7 @@ class PictureListViewController: UITableViewController {
                 self.cardAry.addObject(c)
             }
             dispatch_async(dispatch_get_main_queue(), {
+                indicator.removeFromSuperview()
                 self.tableView.reloadData()
             })
         })

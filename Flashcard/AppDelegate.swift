@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate {
     var rowNames: [String]?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        DatabaseHelper.executeUpdate("create table if not exists Cards (id INTEGER PRIMARY KEY, englishText TEXT, foreignText TEXT")
+        DatabaseHelper.executeUpdate("create table if not exists Cards (id INTEGER PRIMARY KEY, englishText TEXT, foreignText TEXT, favorite INT")
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
