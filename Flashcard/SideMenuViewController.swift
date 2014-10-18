@@ -9,13 +9,32 @@
 import UIKit
 
 class SideMenuViewController: UITableViewController {
-    
-    var rowNames: [String]?
+
+    var rowNames: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        
+        let footerView: UIView = UIView(frame: CGRectMake(0, 0, 250, 50))
+        footerView.backgroundColor = UIColor(red: 44.0/255.0, green: 44.0/255.0, blue: 44.0/255.0, alpha: 1)
+        let settingBtn: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+        settingBtn.tintColor = UIColor.whiteColor()
+        settingBtn.frame = CGRectMake(0, 2, 48, 48)
+        settingBtn.setImage(UIImage(named: "Settings").imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState: UIControlState.Normal)
+        footerView.addSubview(settingBtn)
+        let copyrightLbl: UILabel = UILabel(frame: CGRectMake(48, 2, 250-48, 48))
+        copyrightLbl.text = "© G. Lo, S. Xu, M. Lee"
+        copyrightLbl.textColor = UIColor.whiteColor()
+        copyrightLbl.textAlignment = NSTextAlignment.Right
+        copyrightLbl.font = UIFont(name: "Avenir-Book", size: 15)
+        footerView.addSubview(copyrightLbl)
+        let upperLayer: CALayer = CALayer()
+        upperLayer.frame = CGRectMake(0, 0, 1000, 2)
+        upperLayer.backgroundColor = UIColor(white: 0.5, alpha: 0.6).CGColor
+        footerView.layer.addSublayer(upperLayer)
+        self.tableView.tableFooterView = footerView
 
-        self.view.backgroundColor = UIColor(red: 0, green: 0.5, blue: 1, alpha: 1)
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,16 +44,19 @@ class SideMenuViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    override func viewWillAppear(animated: Bool) {
+
+    }
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return self.rowNames.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -44,10 +66,11 @@ class SideMenuViewController: UITableViewController {
         if (cell == nil) {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "CellIdentifier")
         }
+        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Bottom)
 
         return cell!
     }
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
@@ -93,5 +116,4 @@ class SideMenuViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
