@@ -10,19 +10,22 @@ import UIKit
 
 let reuseIdentifier = "Cell"
 
-class TakenPictureViewController: UICollectionViewController {
+class TakenPictureViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var pictureName: NSMutableArray = NSMutableArray()
+    let collectionView: UICollectionView = UICollectionView(frame: CGRectMake(0, 64, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - 64 - 44), collectionViewLayout: UICollectionViewFlowLayout())
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionView?.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSizeMake(70, 103)
+        layout.itemSize = CGSizeMake(UIScreen.mainScreen().bounds.width/4, UIScreen.mainScreen().bounds.width/4)
         layout.sectionInset = UIEdgeInsetsMake(30, 30, 30, 30)
         layout.scrollDirection = UICollectionViewScrollDirection.Vertical
-        self.collectionView?.collectionViewLayout = layout
+        self.collectionView.collectionViewLayout = layout
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
         
         let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id FROM Cards")
         while (rs.next()) {
@@ -37,16 +40,16 @@ class TakenPictureViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
 
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pictureName.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
         
         for view in cell.contentView.subviews {
@@ -66,7 +69,7 @@ class TakenPictureViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDelegate
 
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         // Did select
     }
 
