@@ -193,7 +193,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
         let s = alertView.buttonTitleAtIndex(buttonIndex)
         if (s != "Cancel"){
             let categoryName = alertView.textFieldAtIndex(0)?.text
-            
+            DatabaseHelper.executeUpdate("INSERT INTO Lists (Name) VALUES (\(categoryName))")
         }
     }
 }
