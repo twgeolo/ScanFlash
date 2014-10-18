@@ -10,7 +10,7 @@ import UIKit
 
 class PictureListViewController: UITableViewController {
     
-    var cardAry: NSMutableArray = NSMutableArray()
+    var cardArray:[Card]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +19,10 @@ class PictureListViewController: UITableViewController {
         self.tableView.addSubview(indicator)
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, englishText, foreignText FROM Cards")
+            let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, listId, englishText, foreignText, PicId, favorite FROM Cards")
             while (rs.next()) {
-                let c: Card = Card(text: rs.objectForColumnIndex(1) as String, foreign: rs.objectForColumnIndex(2) as String, pictureURL: NSURL(string: "\(rs.objectForColumnIndex(0)).jpg"))
-                self.cardAry.addObject(c)
+                let cardTmp : Card = Card(cardId: Int(rs.intForColumnIndex(0)), listId: Int(rs.intForColumnIndex(1)), text: rs.objectForColumnIndex(2) as String, foreign: rs.objectForColumnIndex(3) as String, pictureId: Int(rs.intForColumnIndex(4)), favorite: Int(rs.intForColumnIndex(5)))
+                self.cardArray.append(cardTmp)
             }
             dispatch_async(dispatch_get_main_queue(), {
                 indicator.removeFromSuperview()
@@ -46,7 +46,7 @@ class PictureListViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return self.cardAry.count
+        return self.cardArray.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -56,8 +56,8 @@ class PictureListViewController: UITableViewController {
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "CellIdentifier")
         }
         
-        let c: Card = cardAry[indexPath.row] as Card
-        cell?.imageView?.imageURL = c.pictureURL
+        let c: Card = cardArray[indexPath.row] as Card
+        //cell?.imageView?.imageURL = c.pictureId
         cell?.textLabel?.text = c.text
         cell?.detailTextLabel?.text = c.foreign
 

@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        let viewController : ListViewController = ListViewController()
+        let viewController : TakenPictureViewController = TakenPictureViewController()
         
         viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "SideMenu"), style: UIBarButtonItemStyle.Done, target: self, action: "showMenu")
         
@@ -81,44 +81,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
         if let realNames = rowNames {
             var navigationController: UINavigationController?
             
-            
-            /*
-            if (realNames[indexPath.row] as NSString).isEqualToString("MyMail") {
-                navigationController = createNavController(MyMailViewController())
-            } else if (realNames[indexPath.row] as NSString).isEqualToString("Blackboard") {
-                navigationController = createNavController(BlackboardViewController())
-            } else if (realNames[indexPath.row] as NSString).isEqualToString(NSLocalizedString("SCHEDULE", comment: "")) {
-                navigationController = createNavController(GameViewController())
-            } else if (realNames[indexPath.row] as NSString).isEqualToString(NSLocalizedString("BUS", comment: "")) {
-                navigationController = createNavController(GameViewController())
-            } else if (realNames[indexPath.row] as NSString).isEqualToString(NSLocalizedString("MAP", comment: "")) {
-                navigationController = createNavController(GameViewController())
-            } else if (realNames[indexPath.row] as NSString).isEqualToString(NSLocalizedString("LABS", comment: "")) {
-                navigationController = createNavController(GameViewController())
-            } else if (realNames[indexPath.row] as NSString).isEqualToString(NSLocalizedString("COREC", comment: "")) {
-                navigationController = createNavController(GameViewController())
-            } else if (realNames[indexPath.row] as NSString).isEqualToString(NSLocalizedString("GAMES", comment: "")) {
-                navigationController = createNavController(GameViewController())
-            } else if (realNames[indexPath.row] as NSString).isEqualToString(NSLocalizedString("MENU", comment: "")) {
-                navigationController = createNavController(GameViewController())
-            } else if (realNames[indexPath.row] as NSString).isEqualToString(NSLocalizedString("NEWS", comment: "")) {
-                navigationController = createNavController(GameViewController())
-            } else if (realNames[indexPath.row] as NSString).isEqualToString(NSLocalizedString("WEATHER", comment: "")) {
-                navigationController = createNavController(WeatherViewController())
-            } else if (realNames[indexPath.row] as NSString).isEqualToString(NSLocalizedString("LIBRARY", comment: "")) {
-                navigationController = createNavController(GameViewController())
-            } else if (realNames[indexPath.row] as NSString).isEqualToString(NSLocalizedString("PHOTOS", comment: "")) {
-                navigationController = createNavController(PhotoViewController())
-            } else if (realNames[indexPath.row] as NSString).isEqualToString(NSLocalizedString("VIDEOS", comment: "")) {
-                navigationController = createNavController(VideoViewController())
-            } else if (realNames[indexPath.row] as NSString).isEqualToString(NSLocalizedString("DIRECTORY", comment: "")) {
-                navigationController = createNavController(GameViewController())
-            } else if (realNames[indexPath.row] as NSString).isEqualToString(NSLocalizedString("BANDWIDTH", comment: "")) {
-                navigationController = createNavController(GameViewController())
-            } else {
-                navigationController = createNavController(NewsViewController())
+            if (realNames[indexPath.row] as NSString).isEqualToString("Gallery") {
+                navigationController = createNavController(TakenPictureViewController())
+            } else if (realNames[indexPath.row] as NSString).isEqualToString("All") {
+                    navigationController = createNavController(ListViewController(id: 0))
+            } else if (realNames[indexPath.row] as NSString).isEqualToString("Favorite") {
+                navigationController = createNavController(ListViewController(id: 1))
+            } else if (realNames[indexPath.row] as NSString).isEqualToString("Recommended") {
+                navigationController = createNavController(ListViewController(id: 2))
+            } else
+            {
+                navigationController = createNavController(ListViewController(id: indexPath.row ))
             }
-*/
             
             slidingViewController?.topViewController = navigationController
             (slidingViewController?.topViewController as UINavigationController).viewControllers[0].navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "SideMenu"), style: .Done, target: self, action: "showMenu")
@@ -185,7 +159,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
     }
     
     func homeButtonPressed(){
-        showMenu()
+        //showMenu()
     }
     
     func addCategory(){
