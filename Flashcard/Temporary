@@ -1,0 +1,9 @@
+/***************************/
+/**   Text to Image API   **/
+/***************************/
+
+var err: NSError?
+let data: NSData? = NSData.dataWithContentsOfURL(NSURL(string: "http://pixabay.com/api/?username=cscz3329&key=21481a8de1b2c9ae5950&search_term=yellow+flower&image_type=photo&page=1&per_page=5"), options: NSDataReadingOptions.DataReadingUncached, error: &err)
+let dict: NSDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: &err) as NSDictionary
+let imageURL: NSURL = NSURL(string: (((dict["hits"] as NSArray)[0]) as NSDictionary)["previewURL"] as String)
+println(imageURL)

@@ -1,5 +1,5 @@
 //
-//  ListViewController.swift
+//  PictureListViewController.swift
 //  Flashcard
 //
 //  Created by George Lo on 10/18/14.
@@ -8,58 +8,61 @@
 
 import UIKit
 
-class ListViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PictureListViewController: UITableViewController {
+    
+    var cardAry: NSMutableArray = NSMutableArray()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Camera"), style: UIBarButtonItemStyle.Done, target: self, action: "showCamera")
+        let indicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake((UIScreen.mainScreen().bounds.size.width - 44) / 2, 85, 44, 44))
+        self.tableView.addSubview(indicator)
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, englishText, foreignText FROM Cards")
+            while (rs.next()) {
+                let c: Card = Card(text: rs.objectForColumnIndex(1) as String, foreign: rs.objectForColumnIndex(2) as String, pictureURL: NSURL(string: "\(rs.objectForColumnIndex(0)).jpg"))
+                self.cardAry.addObject(c)
+            }
+            dispatch_async(dispatch_get_main_queue(), {
+                indicator.removeFromSuperview()
+                self.tableView.reloadData()
+            })
+        })
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func showCamera() {
-        
-        var picker : UIImagePickerController  = UIImagePickerController();
-        picker.delegate = self;
-        picker.allowsEditing = true;
-        picker.sourceType = UIImagePickerControllerSourceType.Camera;
-        
-        self.presentViewController(picker, animated: true, completion: { imageP in });
-        
-    }
-    
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
-        let selectedImage : UIImage = image
-    }
-    
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return self.cardAry.count
     }
 
-    /*
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("CellIdentifier") as? UITableViewCell
+        
+        if (cell == nil) {
+            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "CellIdentifier")
+        }
+        
+        let c: Card = cardAry[indexPath.row] as Card
+        cell?.imageView?.imageURL = c.pictureURL
+        cell?.textLabel?.text = c.text
+        cell?.detailTextLabel?.text = c.foreign
 
-        // Configure the cell...
-
-        return cell
+        return cell!
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

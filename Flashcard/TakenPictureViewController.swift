@@ -10,18 +10,27 @@ import UIKit
 
 let reuseIdentifier = "Cell"
 
-class TakenPictureViewController: UICollectionViewController {
+class TakenPictureViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    var pictureName: NSMutableArray = NSMutableArray()
+    let collectionView: UICollectionView = UICollectionView(frame: CGRectMake(0, 64, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - 64 - 44), collectionViewLayout: UICollectionViewFlowLayout())
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView?.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        
+        self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSizeMake(UIScreen.mainScreen().bounds.width/4, UIScreen.mainScreen().bounds.width/4)
+        layout.sectionInset = UIEdgeInsetsMake(30, 30, 30, 30)
+        layout.scrollDirection = UICollectionViewScrollDirection.Vertical
+        self.collectionView.collectionViewLayout = layout
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        
+        let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id FROM Cards")
+        while (rs.next()) {
+            self.pictureName.addObject("\(rs.objectForColumnIndex(0))")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,66 +38,39 @@ class TakenPictureViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        //#warning Incomplete method implementation -- Return the number of sections
-        return 0
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
     }
 
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //#warning Incomplete method implementation -- Return the number of items in the section
-        return 0
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return pictureName.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
-    
-        // Configure the cell
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        var cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
+        
+        for view in cell.contentView.subviews {
+            view.removeFromSuperview()
+        }
+        
+        let imageView: UIImageView = UIImageView(frame: CGRectMake(0, 0, 80, 80))
+        imageView.imageURL = NSURL(fileURLWithPath: NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent("\(pictureName[indexPath.row]).jpg"))
+        imageView.layer.borderColor = UIColor.whiteColor().CGColor
+        imageView.layer.borderWidth = 1.5
+        cell.contentView.addSubview(imageView)
+        
+        cell.backgroundColor = UIColor.clearColor()
     
         return cell
     }
 
     // MARK: UICollectionViewDelegate
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    func collectionView(collectionView: UICollectionView!, shouldHighlightItemAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        return true
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        // Did select
     }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    func collectionView(collectionView: UICollectionView!, shouldSelectItemAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    func collectionView(collectionView: UICollectionView!, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        return false
-    }
-
-    func collectionView(collectionView: UICollectionView!, canPerformAction action: String!, forItemAtIndexPath indexPath: NSIndexPath!, withSender sender: AnyObject!) -> Bool {
-        return false
-    }
-
-    func collectionView(collectionView: UICollectionView!, performAction action: String!, forItemAtIndexPath indexPath: NSIndexPath!, withSender sender: AnyObject!) {
-    
-    }
-    */
 
 }

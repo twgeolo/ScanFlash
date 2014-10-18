@@ -11,6 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAlertViewDelegate {
 
+    var sourceType: UIImagePickerControllerSourceType?
     var window: UIWindow?
     var open: Bool = false
     var slidingViewController: ECSlidingViewController?
@@ -20,10 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
     var addButton: UIButton!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        DatabaseHelper.executeUpdate("create table if not exists Cards (id INTEGER PRIMARY KEY, englishText TEXT, foreignText TEXT, favorite INT)")
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         let viewController : ListViewController = ListViewController()
+        
         viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "SideMenu"), style: UIBarButtonItemStyle.Done, target: self, action: "showMenu")
+        
         let navigationController: UINavigationController = createNavController(viewController)
         slidingViewController = ECSlidingViewController(topViewController: navigationController)
         
@@ -58,6 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
             slidingViewController?.anchorTopViewToRightAnimated(true)
         }
     }
+    
+   
     
     // MARK: - Table view delegate
     
