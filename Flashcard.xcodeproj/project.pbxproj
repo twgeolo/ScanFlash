@@ -33,6 +33,9 @@
 		5E36FF6819F2D9AF0001ECC1 /* TakenPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF6719F2D9AF0001ECC1 /* TakenPictureViewController.swift */; };
 		5E36FF6A19F2DB6D0001ECC1 /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF6919F2DB6D0001ECC1 /* DatabaseHelper.swift */; };
 		5E36FF7019F2DE030001ECC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E36FF6D19F2DD960001ECC1 /* libsqlite3.dylib */; };
+		5E36FF7419F2E1E00001ECC1 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF7319F2E1E00001ECC1 /* AsyncImageView.m */; };
+		5E36FF7619F2E3810001ECC1 /* PictureListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF7519F2E3810001ECC1 /* PictureListViewController.swift */; };
+		5E36FF7919F2E4890001ECC1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF7819F2E4890001ECC1 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +97,10 @@
 		5E36FF6719F2D9AF0001ECC1 /* TakenPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakenPictureViewController.swift; sourceTree = "<group>"; };
 		5E36FF6919F2DB6D0001ECC1 /* DatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
 		5E36FF6D19F2DD960001ECC1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		5E36FF7219F2E1E00001ECC1 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		5E36FF7319F2E1E00001ECC1 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		5E36FF7519F2E3810001ECC1 /* PictureListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureListViewController.swift; sourceTree = "<group>"; };
+		5E36FF7819F2E4890001ECC1 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,9 +145,10 @@
 			children = (
 				5E36FF6B19F2DB7E0001ECC1 /* Libraries */,
 				5E03249A19F2C39200DA7E19 /* AppDelegate.swift */,
+				5E36FF7A19F2E4FD0001ECC1 /* Model */,
 				5E36FF6C19F2DB870001ECC1 /* Helper */,
 				5E03249C19F2C39200DA7E19 /* ViewController.swift */,
-				5E36FF6719F2D9AF0001ECC1 /* TakenPictureViewController.swift */,
+				5E36FF7719F2E3840001ECC1 /* Home */,
 				5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */,
 				5E0324D119F2C77B00DA7E19 /* ListViewController.swift */,
 				5E0324A119F2C39200DA7E19 /* Images.xcassets */,
@@ -234,6 +242,7 @@
 		5E36FF6B19F2DB7E0001ECC1 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				5E36FF7119F2E1E00001ECC1 /* AsyncImageView */,
 				5E36FF6D19F2DD960001ECC1 /* libsqlite3.dylib */,
 				5E0324BA19F2C48400DA7E19 /* ECSlidingViewController */,
 				5E36FF5819F2D9780001ECC1 /* SCLAlertView */,
@@ -248,6 +257,32 @@
 				5E36FF6919F2DB6D0001ECC1 /* DatabaseHelper.swift */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		5E36FF7119F2E1E00001ECC1 /* AsyncImageView */ = {
+			isa = PBXGroup;
+			children = (
+				5E36FF7219F2E1E00001ECC1 /* AsyncImageView.h */,
+				5E36FF7319F2E1E00001ECC1 /* AsyncImageView.m */,
+			);
+			path = AsyncImageView;
+			sourceTree = "<group>";
+		};
+		5E36FF7719F2E3840001ECC1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5E36FF6719F2D9AF0001ECC1 /* TakenPictureViewController.swift */,
+				5E36FF7519F2E3810001ECC1 /* PictureListViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		5E36FF7A19F2E4FD0001ECC1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5E36FF7819F2E4890001ECC1 /* Card.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,7 +390,9 @@
 				5E03249D19F2C39200DA7E19 /* ViewController.swift in Sources */,
 				5E0324CC19F2C48400DA7E19 /* ECSlidingViewController.m in Sources */,
 				5E36FF5319F2D9640001ECC1 /* FMDatabase.m in Sources */,
+				5E36FF7419F2E1E00001ECC1 /* AsyncImageView.m in Sources */,
 				5E0324CB19F2C48400DA7E19 /* ECSlidingSegue.m in Sources */,
+				5E36FF7919F2E4890001ECC1 /* Card.swift in Sources */,
 				5E36FF6519F2D9780001ECC1 /* SCLAlertViewStyleKit.m in Sources */,
 				5E36FF6419F2D9780001ECC1 /* SCLAlertViewResponder.m in Sources */,
 				5E36FF5619F2D9640001ECC1 /* FMDatabaseQueue.m in Sources */,
@@ -367,6 +404,7 @@
 				5E0324CD19F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m in Sources */,
 				5E36FF5419F2D9640001ECC1 /* FMDatabaseAdditions.m in Sources */,
 				5E0324D019F2C77100DA7E19 /* SideMenuViewController.swift in Sources */,
+				5E36FF7619F2E3810001ECC1 /* PictureListViewController.swift in Sources */,
 				5E0324D219F2C77B00DA7E19 /* ListViewController.swift in Sources */,
 				5E36FF5519F2D9640001ECC1 /* FMDatabasePool.m in Sources */,
 				5E36FF6319F2D9780001ECC1 /* SCLAlertView.m in Sources */,

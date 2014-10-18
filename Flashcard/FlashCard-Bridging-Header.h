@@ -11,5 +11,6 @@
 
 #import "ECSlidingViewController.h"
 #import "FMDB.h"
+#import "AsyncImageView.h"
 
 #endif
