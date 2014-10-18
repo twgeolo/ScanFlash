@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAlertViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAlertViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     var sourceType: UIImagePickerControllerSourceType?
     var window: UIWindow?
@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
     var addButton: UIButton!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        println(NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String)
         DatabaseHelper.executeUpdate("drop table Lists")
         DatabaseHelper.executeUpdate("drop table Cards")
         DatabaseHelper.executeUpdate("drop table Pictures")
