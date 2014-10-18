@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A87067619F2D73C00A189E7 /* TakenPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A87067519F2D73C00A189E7 /* TakenPictureViewController.swift */; };
 		5E03249B19F2C39200DA7E19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03249A19F2C39200DA7E19 /* AppDelegate.swift */; };
 		5E03249D19F2C39200DA7E19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03249C19F2C39200DA7E19 /* ViewController.swift */; };
 		5E0324A219F2C39200DA7E19 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E0324A119F2C39200DA7E19 /* Images.xcassets */; };
@@ -54,7 +53,6 @@
 
 /* Begin PBXFileReference section */
 		3A87067519F2D73C00A189E7 /* TakenPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakenPictureViewController.swift; sourceTree = "<group>"; };
-		3A87067719F2D78C00A189E7 /* TakenPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TakenPictureViewController.swift; path = Flashcard/TakenPictureViewController.swift; sourceTree = "<group>"; };
 		5E03249519F2C39200DA7E19 /* Flashcard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E03249919F2C39200DA7E19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E03249A19F2C39200DA7E19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 		5E03248C19F2C39200DA7E19 = {
 			isa = PBXGroup;
 			children = (
-				3A87067719F2D78C00A189E7 /* TakenPictureViewController.swift */,
 				5E03249719F2C39200DA7E19 /* Flashcard */,
 				5E0324AD19F2C39200DA7E19 /* FlashcardTests */,
 				5E03249619F2C39200DA7E19 /* Products */,
