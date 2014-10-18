@@ -102,9 +102,9 @@
 				5E0324CE19F2C5B800DA7E19 /* FlashCard-Bridging-Header.h */,
 				5E0324BA19F2C48400DA7E19 /* ECSlidingViewController */,
 				5E03249A19F2C39200DA7E19 /* AppDelegate.swift */,
+				5E03249C19F2C39200DA7E19 /* ViewController.swift */,
 				5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */,
 				5E0324D119F2C77B00DA7E19 /* ListViewController.swift */,
-				5E03249C19F2C39200DA7E19 /* ViewController.swift */,
 				5E0324A119F2C39200DA7E19 /* Images.xcassets */,
 				5E0324A319F2C39200DA7E19 /* LaunchScreen.xib */,
 				5E03249819F2C39200DA7E19 /* Supporting Files */,
@@ -238,16 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E0324A519F2C39200DA7E19 /* LaunchScreen.xib in Resources */,
-				A6EEEDAA19F2C7D400EFC63F /* plus-sign.png in Resources */,
-				A6EEEDAD19F2C7D400EFC63F /* rss.png in Resources */,
-				A6EEEDA419F2C7D400EFC63F /* camera.png in Resources */,
-				A6EEEDB219F2C7D400EFC63F /* tag.png in Resources */,
-				A6EEEDB119F2C7D400EFC63F /* storage.png in Resources */,
-				A6EEEDA819F2C7D400EFC63F /* home.png in Resources */,
 				5E0324A219F2C39200DA7E19 /* Images.xcassets in Resources */,
-				A6EEEDA519F2C7D400EFC63F /* folder.png in Resources */,
-				A6EEEDB519F2C7D400EFC63F /* thumb-up.png in Resources */,
-				A6EEEDA619F2C7D400EFC63F /* forbidden.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
