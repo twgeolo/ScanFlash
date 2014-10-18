@@ -32,7 +32,7 @@
 		5E36FF6619F2D9780001ECC1 /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF6119F2D9780001ECC1 /* SCLButton.m */; };
 		5E36FF6819F2D9AF0001ECC1 /* TakenPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF6719F2D9AF0001ECC1 /* TakenPictureViewController.swift */; };
 		5E36FF6A19F2DB6D0001ECC1 /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF6919F2DB6D0001ECC1 /* DatabaseHelper.swift */; };
-		5E36FF6E19F2DD960001ECC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E36FF6D19F2DD960001ECC1 /* libsqlite3.dylib */; };
+		5E36FF7019F2DE030001ECC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E36FF6D19F2DD960001ECC1 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E36FF6E19F2DD960001ECC1 /* libsqlite3.dylib in Frameworks */,
+				5E36FF7019F2DE030001ECC1 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
