@@ -39,6 +39,7 @@
 		5E36FF7D19F2F0BF0001ECC1 /* Temporary in Resources */ = {isa = PBXBuildFile; fileRef = 5E36FF7B19F2F0BF0001ECC1 /* Temporary */; };
 		A63C06AA19F2FF360041329D /* APPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A63C06A719F2FF360041329D /* APPAppDelegate.m */; };
 		A63C06AB19F2FF360041329D /* APPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A63C06A919F2FF360041329D /* APPViewController.m */; };
+		A63C06AD19F303780041329D /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63C06AC19F303780041329D /* CameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		A63C06A719F2FF360041329D /* APPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPAppDelegate.m; sourceTree = "<group>"; };
 		A63C06A819F2FF360041329D /* APPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPViewController.h; sourceTree = "<group>"; };
 		A63C06A919F2FF360041329D /* APPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPViewController.m; sourceTree = "<group>"; };
+		A63C06AC19F303780041329D /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				5E03249C19F2C39200DA7E19 /* ViewController.swift */,
 				5E36FF7719F2E3840001ECC1 /* Home */,
 				5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */,
+				A63C06AC19F303780041329D /* CameraViewController.swift */,
 				5E0324D119F2C77B00DA7E19 /* ListViewController.swift */,
 				5E0324A119F2C39200DA7E19 /* Images.xcassets */,
 				5E03249819F2C39200DA7E19 /* Supporting Files */,
@@ -424,6 +427,7 @@
 				5E36FF5719F2D9640001ECC1 /* FMResultSet.m in Sources */,
 				5E03249B19F2C39200DA7E19 /* AppDelegate.swift in Sources */,
 				5E0324C819F2C48400DA7E19 /* ECPercentDrivenInteractiveTransition.m in Sources */,
+				A63C06AD19F303780041329D /* CameraViewController.swift in Sources */,
 				5E0324CD19F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m in Sources */,
 				5E36FF5419F2D9640001ECC1 /* FMDatabaseAdditions.m in Sources */,
 				5E0324D019F2C77100DA7E19 /* SideMenuViewController.swift in Sources */,

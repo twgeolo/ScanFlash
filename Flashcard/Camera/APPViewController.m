@@ -39,7 +39,7 @@
     
 }
 
-- (IBAction)takePhoto:(UIButton *)sender {
+- (IBAction)showCam:(UIButton *)sender {
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
