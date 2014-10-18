@@ -21,6 +21,25 @@
 		5E0324CD19F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324C719F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m */; };
 		5E0324D019F2C77100DA7E19 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */; };
 		5E0324D219F2C77B00DA7E19 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324D119F2C77B00DA7E19 /* ListViewController.swift */; };
+		5E36FF5319F2D9640001ECC1 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF4919F2D9640001ECC1 /* FMDatabase.m */; };
+		5E36FF5419F2D9640001ECC1 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF4B19F2D9640001ECC1 /* FMDatabaseAdditions.m */; };
+		5E36FF5519F2D9640001ECC1 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF4D19F2D9640001ECC1 /* FMDatabasePool.m */; };
+		5E36FF5619F2D9640001ECC1 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF4F19F2D9640001ECC1 /* FMDatabaseQueue.m */; };
+		5E36FF5719F2D9640001ECC1 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF5219F2D9640001ECC1 /* FMResultSet.m */; };
+		5E36FF6219F2D9780001ECC1 /* git.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E36FF5919F2D9780001ECC1 /* git.png */; };
+		5E36FF6319F2D9780001ECC1 /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF5B19F2D9780001ECC1 /* SCLAlertView.m */; };
+		5E36FF6419F2D9780001ECC1 /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF5D19F2D9780001ECC1 /* SCLAlertViewResponder.m */; };
+		5E36FF6519F2D9780001ECC1 /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF5F19F2D9780001ECC1 /* SCLAlertViewStyleKit.m */; };
+		5E36FF6619F2D9780001ECC1 /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF6119F2D9780001ECC1 /* SCLButton.m */; };
+		5E36FF6819F2D9AF0001ECC1 /* TakenPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF6719F2D9AF0001ECC1 /* TakenPictureViewController.swift */; };
+		5E36FF6A19F2DB6D0001ECC1 /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF6919F2DB6D0001ECC1 /* DatabaseHelper.swift */; };
+		5E36FF7019F2DE030001ECC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E36FF6D19F2DD960001ECC1 /* libsqlite3.dylib */; };
+		5E36FF7419F2E1E00001ECC1 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF7319F2E1E00001ECC1 /* AsyncImageView.m */; };
+		5E36FF7619F2E3810001ECC1 /* PictureListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF7519F2E3810001ECC1 /* PictureListViewController.swift */; };
+		5E36FF7919F2E4890001ECC1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF7819F2E4890001ECC1 /* Card.swift */; };
+		5E36FF7D19F2F0BF0001ECC1 /* Temporary in Resources */ = {isa = PBXBuildFile; fileRef = 5E36FF7B19F2F0BF0001ECC1 /* Temporary */; };
+		A63C06AA19F2FF360041329D /* APPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A63C06A719F2FF360041329D /* APPAppDelegate.m */; };
+		A63C06AB19F2FF360041329D /* APPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A63C06A919F2FF360041329D /* APPViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +80,38 @@
 		5E0324CE19F2C5B800DA7E19 /* FlashCard-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FlashCard-Bridging-Header.h"; sourceTree = "<group>"; };
 		5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		5E0324D119F2C77B00DA7E19 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		5E36FF4819F2D9640001ECC1 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		5E36FF4919F2D9640001ECC1 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		5E36FF4A19F2D9640001ECC1 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		5E36FF4B19F2D9640001ECC1 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		5E36FF4C19F2D9640001ECC1 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		5E36FF4D19F2D9640001ECC1 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		5E36FF4E19F2D9640001ECC1 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		5E36FF4F19F2D9640001ECC1 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		5E36FF5019F2D9640001ECC1 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		5E36FF5119F2D9640001ECC1 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		5E36FF5219F2D9640001ECC1 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		5E36FF5919F2D9780001ECC1 /* git.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = git.png; sourceTree = "<group>"; };
+		5E36FF5A19F2D9780001ECC1 /* SCLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertView.h; sourceTree = "<group>"; };
+		5E36FF5B19F2D9780001ECC1 /* SCLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertView.m; sourceTree = "<group>"; };
+		5E36FF5C19F2D9780001ECC1 /* SCLAlertViewResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertViewResponder.h; sourceTree = "<group>"; };
+		5E36FF5D19F2D9780001ECC1 /* SCLAlertViewResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewResponder.m; sourceTree = "<group>"; };
+		5E36FF5E19F2D9780001ECC1 /* SCLAlertViewStyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertViewStyleKit.h; sourceTree = "<group>"; };
+		5E36FF5F19F2D9780001ECC1 /* SCLAlertViewStyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewStyleKit.m; sourceTree = "<group>"; };
+		5E36FF6019F2D9780001ECC1 /* SCLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLButton.h; sourceTree = "<group>"; };
+		5E36FF6119F2D9780001ECC1 /* SCLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLButton.m; sourceTree = "<group>"; };
+		5E36FF6719F2D9AF0001ECC1 /* TakenPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakenPictureViewController.swift; sourceTree = "<group>"; };
+		5E36FF6919F2DB6D0001ECC1 /* DatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
+		5E36FF6D19F2DD960001ECC1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		5E36FF7219F2E1E00001ECC1 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		5E36FF7319F2E1E00001ECC1 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		5E36FF7519F2E3810001ECC1 /* PictureListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureListViewController.swift; sourceTree = "<group>"; };
+		5E36FF7819F2E4890001ECC1 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5E36FF7B19F2F0BF0001ECC1 /* Temporary */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Temporary; sourceTree = "<group>"; };
+		A63C06A619F2FF360041329D /* APPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPAppDelegate.h; sourceTree = "<group>"; };
+		A63C06A719F2FF360041329D /* APPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPAppDelegate.m; sourceTree = "<group>"; };
+		A63C06A819F2FF360041329D /* APPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPViewController.h; sourceTree = "<group>"; };
+		A63C06A919F2FF360041329D /* APPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,7 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A87067619F2D73C00A189E7 /* TakenPictureViewController.swift in Sources */,
+				5E36FF6819F2D9AF0001ECC1 /* TakenPictureViewController.swift in Sources */,
 				5E0324CA19F2C48400DA7E19 /* ECSlidingInteractiveTransition.m in Sources */,
 				5E03249D19F2C39200DA7E19 /* ViewController.swift in Sources */,
 				5E0324CC19F2C48400DA7E19 /* ECSlidingViewController.m in Sources */,
@@ -384,6 +435,8 @@
 				A63C06AB19F2FF360041329D /* APPViewController.m in Sources */,
 				5E36FF7619F2E3810001ECC1 /* PictureListViewController.swift in Sources */,
 				5E0324D219F2C77B00DA7E19 /* ListViewController.swift in Sources */,
+				5E36FF5519F2D9640001ECC1 /* FMDatabasePool.m in Sources */,
+				5E36FF6319F2D9780001ECC1 /* SCLAlertView.m in Sources */,
 				5E0324C919F2C48400DA7E19 /* ECSlidingAnimationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
