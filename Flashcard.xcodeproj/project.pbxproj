@@ -36,6 +36,7 @@
 		5E36FF7419F2E1E00001ECC1 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF7319F2E1E00001ECC1 /* AsyncImageView.m */; };
 		5E36FF7619F2E3810001ECC1 /* PictureListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF7519F2E3810001ECC1 /* PictureListViewController.swift */; };
 		5E36FF7919F2E4890001ECC1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF7819F2E4890001ECC1 /* Card.swift */; };
+		5E36FF7D19F2F0BF0001ECC1 /* Temporary in Resources */ = {isa = PBXBuildFile; fileRef = 5E36FF7B19F2F0BF0001ECC1 /* Temporary */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		5E36FF7319F2E1E00001ECC1 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		5E36FF7519F2E3810001ECC1 /* PictureListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureListViewController.swift; sourceTree = "<group>"; };
 		5E36FF7819F2E4890001ECC1 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5E36FF7B19F2F0BF0001ECC1 /* Temporary */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Temporary; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				5E0324D119F2C77B00DA7E19 /* ListViewController.swift */,
 				5E0324A119F2C39200DA7E19 /* Images.xcassets */,
 				5E03249819F2C39200DA7E19 /* Supporting Files */,
+				5E36FF7B19F2F0BF0001ECC1 /* Temporary */,
 			);
 			path = Flashcard;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E36FF7D19F2F0BF0001ECC1 /* Temporary in Resources */,
 				5E36FF6219F2D9780001ECC1 /* git.png in Resources */,
 				5E0324A519F2C39200DA7E19 /* LaunchScreen.xib in Resources */,
 				5E0324A219F2C39200DA7E19 /* Images.xcassets in Resources */,
