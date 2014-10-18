@@ -8,16 +8,34 @@
 
 import UIKit
 
-class ListViewController: UITableViewController {
+class ListViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Camera"), style: UIBarButtonItemStyle.Done, target: self, action: "showCamera")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func showCamera() {
+        
+        var picker : UIImagePickerController  = UIImagePickerController();
+        picker.delegate = self;
+        picker.allowsEditing = true;
+        picker.sourceType = UIImagePickerControllerSourceType.Camera;
+        
+        self.presentViewController(picker, animated: true, completion: { imageP in });
+        
+    }
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
+        let selectedImage : UIImage = image
+    }
+    
 
     // MARK: - Table view data source
 
