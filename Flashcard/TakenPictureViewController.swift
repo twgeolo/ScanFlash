@@ -26,7 +26,7 @@ class TakenPictureViewController: UICollectionViewController {
         
         let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id FROM Picture")
         while (rs.next()) {
-            self.pictureName.addObject(rs)
+            self.pictureName.addObject("\(rs.objectForColumnIndex(0))")
         }
     }
 
