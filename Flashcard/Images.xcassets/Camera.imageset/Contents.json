@@ -1,32 +1,6 @@
 {
   "images" : [
-    {
-      "idiom" : "universal",
-      "scale" : "1x",
-<<<<<<< HEAD
-      "filename" : "Camera.png"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
-=======
-      "filename" : "714-camera.png"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "714-camera@2x.png"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "714-camera@3x.png"
->>>>>>> bb66bb5a11375a0e445af33701dea776f10050b4
-    }
+
   ],
   "info" : {
     "version" : 1,
