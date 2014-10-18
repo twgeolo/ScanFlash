@@ -9,10 +9,17 @@
 /* Begin PBXBuildFile section */
 		5E03249B19F2C39200DA7E19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03249A19F2C39200DA7E19 /* AppDelegate.swift */; };
 		5E03249D19F2C39200DA7E19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03249C19F2C39200DA7E19 /* ViewController.swift */; };
-		5E0324A019F2C39200DA7E19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E03249E19F2C39200DA7E19 /* Main.storyboard */; };
 		5E0324A219F2C39200DA7E19 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E0324A119F2C39200DA7E19 /* Images.xcassets */; };
 		5E0324A519F2C39200DA7E19 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0324A319F2C39200DA7E19 /* LaunchScreen.xib */; };
 		5E0324B119F2C39200DA7E19 /* FlashcardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324B019F2C39200DA7E19 /* FlashcardTests.swift */; };
+		5E0324C819F2C48400DA7E19 /* ECPercentDrivenInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324BC19F2C48400DA7E19 /* ECPercentDrivenInteractiveTransition.m */; };
+		5E0324C919F2C48400DA7E19 /* ECSlidingAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324BE19F2C48400DA7E19 /* ECSlidingAnimationController.m */; };
+		5E0324CA19F2C48400DA7E19 /* ECSlidingInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324C119F2C48400DA7E19 /* ECSlidingInteractiveTransition.m */; };
+		5E0324CB19F2C48400DA7E19 /* ECSlidingSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324C319F2C48400DA7E19 /* ECSlidingSegue.m */; };
+		5E0324CC19F2C48400DA7E19 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324C519F2C48400DA7E19 /* ECSlidingViewController.m */; };
+		5E0324CD19F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324C719F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m */; };
+		5E0324D019F2C77100DA7E19 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */; };
+		5E0324D219F2C77B00DA7E19 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0324D119F2C77B00DA7E19 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,12 +37,27 @@
 		5E03249919F2C39200DA7E19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E03249A19F2C39200DA7E19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E03249C19F2C39200DA7E19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5E03249F19F2C39200DA7E19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E0324A119F2C39200DA7E19 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5E0324A419F2C39200DA7E19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5E0324AA19F2C39200DA7E19 /* FlashcardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashcardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E0324AF19F2C39200DA7E19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E0324B019F2C39200DA7E19 /* FlashcardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardTests.swift; sourceTree = "<group>"; };
+		5E0324BB19F2C48400DA7E19 /* ECPercentDrivenInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPercentDrivenInteractiveTransition.h; sourceTree = "<group>"; };
+		5E0324BC19F2C48400DA7E19 /* ECPercentDrivenInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPercentDrivenInteractiveTransition.m; sourceTree = "<group>"; };
+		5E0324BD19F2C48400DA7E19 /* ECSlidingAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingAnimationController.h; sourceTree = "<group>"; };
+		5E0324BE19F2C48400DA7E19 /* ECSlidingAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingAnimationController.m; sourceTree = "<group>"; };
+		5E0324BF19F2C48400DA7E19 /* ECSlidingConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingConstants.h; sourceTree = "<group>"; };
+		5E0324C019F2C48400DA7E19 /* ECSlidingInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingInteractiveTransition.h; sourceTree = "<group>"; };
+		5E0324C119F2C48400DA7E19 /* ECSlidingInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingInteractiveTransition.m; sourceTree = "<group>"; };
+		5E0324C219F2C48400DA7E19 /* ECSlidingSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingSegue.h; sourceTree = "<group>"; };
+		5E0324C319F2C48400DA7E19 /* ECSlidingSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingSegue.m; sourceTree = "<group>"; };
+		5E0324C419F2C48400DA7E19 /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
+		5E0324C519F2C48400DA7E19 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
+		5E0324C619F2C48400DA7E19 /* UIViewController+ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ECSlidingViewController.h"; sourceTree = "<group>"; };
+		5E0324C719F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ECSlidingViewController.m"; sourceTree = "<group>"; };
+		5E0324CE19F2C5B800DA7E19 /* FlashCard-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FlashCard-Bridging-Header.h"; sourceTree = "<group>"; };
+		5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		5E0324D119F2C77B00DA7E19 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +99,12 @@
 		5E03249719F2C39200DA7E19 /* Flashcard */ = {
 			isa = PBXGroup;
 			children = (
+				5E0324CE19F2C5B800DA7E19 /* FlashCard-Bridging-Header.h */,
+				5E0324BA19F2C48400DA7E19 /* ECSlidingViewController */,
 				5E03249A19F2C39200DA7E19 /* AppDelegate.swift */,
+				5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */,
+				5E0324D119F2C77B00DA7E19 /* ListViewController.swift */,
 				5E03249C19F2C39200DA7E19 /* ViewController.swift */,
-				5E03249E19F2C39200DA7E19 /* Main.storyboard */,
 				5E0324A119F2C39200DA7E19 /* Images.xcassets */,
 				5E0324A319F2C39200DA7E19 /* LaunchScreen.xib */,
 				5E03249819F2C39200DA7E19 /* Supporting Files */,
@@ -110,6 +135,26 @@
 				5E0324AF19F2C39200DA7E19 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5E0324BA19F2C48400DA7E19 /* ECSlidingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5E0324BB19F2C48400DA7E19 /* ECPercentDrivenInteractiveTransition.h */,
+				5E0324BC19F2C48400DA7E19 /* ECPercentDrivenInteractiveTransition.m */,
+				5E0324BD19F2C48400DA7E19 /* ECSlidingAnimationController.h */,
+				5E0324BE19F2C48400DA7E19 /* ECSlidingAnimationController.m */,
+				5E0324BF19F2C48400DA7E19 /* ECSlidingConstants.h */,
+				5E0324C019F2C48400DA7E19 /* ECSlidingInteractiveTransition.h */,
+				5E0324C119F2C48400DA7E19 /* ECSlidingInteractiveTransition.m */,
+				5E0324C219F2C48400DA7E19 /* ECSlidingSegue.h */,
+				5E0324C319F2C48400DA7E19 /* ECSlidingSegue.m */,
+				5E0324C419F2C48400DA7E19 /* ECSlidingViewController.h */,
+				5E0324C519F2C48400DA7E19 /* ECSlidingViewController.m */,
+				5E0324C619F2C48400DA7E19 /* UIViewController+ECSlidingViewController.h */,
+				5E0324C719F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m */,
+			);
+			path = ECSlidingViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,7 +237,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E0324A019F2C39200DA7E19 /* Main.storyboard in Resources */,
 				5E0324A519F2C39200DA7E19 /* LaunchScreen.xib in Resources */,
 				5E0324A219F2C39200DA7E19 /* Images.xcassets in Resources */,
 			);
@@ -212,8 +256,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E0324CA19F2C48400DA7E19 /* ECSlidingInteractiveTransition.m in Sources */,
 				5E03249D19F2C39200DA7E19 /* ViewController.swift in Sources */,
+				5E0324CC19F2C48400DA7E19 /* ECSlidingViewController.m in Sources */,
+				5E0324CB19F2C48400DA7E19 /* ECSlidingSegue.m in Sources */,
 				5E03249B19F2C39200DA7E19 /* AppDelegate.swift in Sources */,
+				5E0324C819F2C48400DA7E19 /* ECPercentDrivenInteractiveTransition.m in Sources */,
+				5E0324CD19F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m in Sources */,
+				5E0324D019F2C77100DA7E19 /* SideMenuViewController.swift in Sources */,
+				5E0324D219F2C77B00DA7E19 /* ListViewController.swift in Sources */,
+				5E0324C919F2C48400DA7E19 /* ECSlidingAnimationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,14 +288,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5E03249E19F2C39200DA7E19 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5E03249F19F2C39200DA7E19 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5E0324A319F2C39200DA7E19 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -339,6 +383,7 @@
 				INFOPLIST_FILE = Flashcard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Flashcard/FlashCard-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -349,6 +394,7 @@
 				INFOPLIST_FILE = Flashcard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Flashcard/FlashCard-Bridging-Header.h";
 			};
 			name = Release;
 		};
