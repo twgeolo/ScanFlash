@@ -238,7 +238,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E0324A519F2C39200DA7E19 /* LaunchScreen.xib in Resources */,
+				A6EEEDAA19F2C7D400EFC63F /* plus-sign.png in Resources */,
+				A6EEEDAD19F2C7D400EFC63F /* rss.png in Resources */,
+				A6EEEDA419F2C7D400EFC63F /* camera.png in Resources */,
+				A6EEEDB219F2C7D400EFC63F /* tag.png in Resources */,
+				A6EEEDB119F2C7D400EFC63F /* storage.png in Resources */,
+				A6EEEDA819F2C7D400EFC63F /* home.png in Resources */,
 				5E0324A219F2C39200DA7E19 /* Images.xcassets in Resources */,
+				A6EEEDA519F2C7D400EFC63F /* folder.png in Resources */,
+				A6EEEDB519F2C7D400EFC63F /* thumb-up.png in Resources */,
+				A6EEEDA619F2C7D400EFC63F /* forbidden.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +460,7 @@
 				5E0324B619F2C39200DA7E19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5E0324B719F2C39200DA7E19 /* Build configuration list for PBXNativeTarget "FlashcardTests" */ = {
 			isa = XCConfigurationList;
@@ -459,6 +469,7 @@
 				5E0324B919F2C39200DA7E19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
