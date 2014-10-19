@@ -13,38 +13,58 @@ let reuseIdentifier = "Cell"
 class TakenPictureViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var pictureName: NSMutableArray = NSMutableArray()
-    let collectionView: UICollectionView = UICollectionView(frame: CGRectMake(0, 64, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - 64 - 44), collectionViewLayout: UICollectionViewFlowLayout())
+    let collectionView: UICollectionView = UICollectionView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - 0), collectionViewLayout: UICollectionViewFlowLayout())
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Gallery".uppercaseString
         
+        let allFiles: NSArray = NSFileManager.defaultManager().contentsOfDirectoryAtPath(NSHomeDirectory().stringByAppendingPathComponent("Documents"), error: nil)!
+        pictureName = NSMutableArray(array: allFiles.filteredArrayUsingPredicate(NSPredicate(format: "self ENDSWITH '.png'", argumentArray: nil)))
+        println(pictureName)
+        
         self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSizeMake(UIScreen.mainScreen().bounds.width/4, UIScreen.mainScreen().bounds.width/4)
-        layout.sectionInset = UIEdgeInsetsMake(30, 30, 30, 30)
+        layout.itemSize = CGSizeMake(UIScreen.mainScreen().bounds.width/2, UIScreen.mainScreen().bounds.width/2)
         layout.scrollDirection = UICollectionViewScrollDirection.Vertical
+        layout.minimumInteritemSpacing = 0.0
+        layout.minimumLineSpacing = 0.0
+        self.collectionView.backgroundColor = UIColor.blackColor()
         self.collectionView.collectionViewLayout = layout
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        self.view.addSubview(collectionView)
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Camera"), style: UIBarButtonItemStyle.Done, target: self, action: "showCamera")
-        
-        let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id FROM Cards")
-        while (rs.next()) {
-            self.pictureName.addObject("\(rs.objectForColumnIndex(0))")
-        }
     }
     
     func showCamera() {
-        
         var picker : UIImagePickerController  = UIImagePickerController();
         picker.delegate = self;
-        picker.allowsEditing = true;
         picker.sourceType = UIImagePickerControllerSourceType.Camera;
         
-        self.presentViewController(picker, animated: true, completion: { imageP in });
+        self.presentViewController(picker, animated: true, completion: nil);
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        var image: UIImage = info["UIImagePickerControllerOriginalImage"] as UIImage
+        if (image.imageOrientation != UIImageOrientation.Up) {
+            UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
+            image.drawInRect(CGRectMake(0, 0, image.size.width, image.size.height))
+            image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext();
+        }
         
+        let date: NSDate = NSDate()
+        let dateFormatter: NSDateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd_hh:mm:ss_aa"
+        let dateStr = dateFormatter.stringFromDate(date)
+        DatabaseHelper.executeUpdate("insert into Pictures (desc) values (\'\(dateStr)\')")
+        let picDir = NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(dateStr + ".png")
+        UIImagePNGRepresentation(image).writeToFile(picDir, atomically: true)
+        pictureName.addObject(dateStr + ".png")
+        //self.collectionView.reloadSections(NSIndexSet(index: 0))
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,18 +86,26 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
         
-        for view in cell.contentView.subviews {
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.mainScreen().scale
+        
+        for view: UIView in cell.contentView.subviews as [UIView] {
             view.removeFromSuperview()
         }
         
-        let imageView: UIImageView = UIImageView(frame: CGRectMake(0, 0, 80, 80))
-        imageView.imageURL = NSURL(fileURLWithPath: NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent("\(pictureName[indexPath.row]).jpg"))
-        imageView.layer.borderColor = UIColor.whiteColor().CGColor
-        imageView.layer.borderWidth = 1.5
+        let imageView: AsyncImageView = AsyncImageView(frame: CGRectMake(1, 1, UIScreen.mainScreen().bounds.width/2-2, UIScreen.mainScreen().bounds.width/2-2))
+        imageView.imageURL = NSURL(fileURLWithPath: NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(pictureName[indexPath.row] as String), isDirectory: false)
+        
+        let label: UILabel = UILabel(frame: CGRectMake(0, UIScreen.mainScreen().bounds.width/2-36+1, UIScreen.mainScreen().bounds.width/2-2, 36-2))
+        label.text = (pictureName[indexPath.row] as String).stringByReplacingOccurrencesOfString(".png", withString: "").stringByReplacingOccurrencesOfString("_", withString: " ").stringByReplacingOccurrencesOfString("-", withString: "/")
+        label.backgroundColor = UIColor(white: 0.1, alpha: 0.9)
+        label.textAlignment = NSTextAlignment.Center
+        label.font = UIFont(name: "HelveticaNeue", size: 17)
+        label.textColor = UIColor.whiteColor()
+        imageView.addSubview(label)
+        
         cell.contentView.addSubview(imageView)
         
-        cell.backgroundColor = UIColor.clearColor()
-    
         return cell
     }
 

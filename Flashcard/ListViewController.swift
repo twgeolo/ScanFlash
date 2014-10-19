@@ -58,7 +58,6 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
             }
             rs = DatabaseHelper.executeQuery("SELECT id, listId, englishText, foreignText, PicId, favorite FROM Cards WHERE listId = \(id-3)")
             while (rs.next()) {
-                
                 var cardTmp : Card = Card(cardId: Int(rs.intForColumnIndex(0)), listId: Int(rs.intForColumnIndex(1)), text: rs.objectForColumnIndex(2) as String, foreign: rs.objectForColumnIndex(3) as String, pictureId: Int(rs.intForColumnIndex(4)), favorite: Int(rs.intForColumnIndex(5)))
                 self.cardArray.append(cardTmp)
             }
