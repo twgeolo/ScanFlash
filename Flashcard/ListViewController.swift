@@ -168,6 +168,24 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
         // Return the number of rows in the section.
         return self.cardArray.count
     }
+    
+    func buttonTapped(sender: AnyObject) {
+        var fav: Int = Int(1)
+        let rs = DatabaseHelper.executeQuery("select favorite from cards where id = \(sender.tag + 1)")
+        while (rs.next()) {
+            fav = Int(rs.intForColumnIndex(0))
+        }
+        if (fav == 1) {
+            (sender as UIButton).setImage(UIImage(named: "Favorite").imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState: UIControlState.Normal)
+            (self.cardArray[sender.tag] as Card).favorite = 0
+            DatabaseHelper.executeUpdate("update cards set favorite = 0 where id = \(sender.tag + 1)")
+        } else {
+            (sender as UIButton).setImage(UIImage(named: "Favorited").imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState: UIControlState.Normal)
+            (self.cardArray[sender.tag] as Card).favorite = 1
+            DatabaseHelper.executeUpdate("update cards set favorite = 1 where id = \(sender.tag + 1)")
+        }
+        (sender as UIButton).tintColor = UIColor.whiteColor()
+    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("CellIdentifier") as? UITableViewCell
@@ -182,6 +200,23 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
         cell?.textLabel?.textColor = UIColor.whiteColor()
         cell?.detailTextLabel?.font = UIFont(name: "HelveticaNeue", size: 20)
         cell?.detailTextLabel?.textColor = UIColor.whiteColor()
+        
+        if (id == 0) {
+            let button = UIButton(frame: CGRectMake(0, 0, 50, 50))
+            button.tag = indexPath.row
+            button.addTarget(self, action: "buttonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
+            if (c.favorite == 1) {
+                button.setImage(UIImage(named: "Favorited").imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState: UIControlState.Normal)
+            } else {
+                button.setImage(UIImage(named: "Favorite").imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState: UIControlState.Normal)
+            }
+            button.tintColor = UIColor.whiteColor()
+            cell?.accessoryView = button
+            cell?.accessoryType = UITableViewCellAccessoryType.None
+        } else {
+            cell?.accessoryView = nil
+            cell?.accessoryType = UITableViewCellAccessoryType.None
+        }
         
         
         if (mode == 0){

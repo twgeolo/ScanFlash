@@ -155,10 +155,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
         toolbar.setBackgroundImage(UIImage(), forToolbarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
         toolbar.setShadowImage(UIImage(), forToolbarPosition: UIBarPosition.Any)
         let addBtn: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addCategory")
+        let settingsBtn: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: UIBarButtonItemStyle.Done, target: self, action: "showSettings")
+        settingsBtn.tintColor = UIColor.whiteColor()
         let att: NSDictionary = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Bold", size: 30)]
         addBtn.setTitleTextAttributes(att, forState: UIControlState.Normal)
         let space: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        toolbar.items = [space,addBtn]
+        toolbar.items = [space,settingsBtn,addBtn]
         let upperLayer = CALayer()
         upperLayer.frame = CGRectMake(0, 158, 1000, 1)
         upperLayer.backgroundColor = UIColor(white: 0.5, alpha: 0.6).CGColor
@@ -167,6 +169,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
         headerView.addSubview(toolbar)
         headerView.addSubview(homeBtnView)
         return headerView
+    }
+    
+    func showSettings() {
+        let settingsVC: SettingsViewController = SettingsViewController(style: UITableViewStyle.Grouped)
+        let navigationVC: UINavigationController = UINavigationController(rootViewController: settingsVC)
+        sideMenuVC.presentViewController(navigationVC, animated: true, completion: nil)
     }
     
 
