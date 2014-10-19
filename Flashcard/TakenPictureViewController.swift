@@ -118,4 +118,8 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
         // Did select
     }
 
+    func degreesToRadians(degrees:Float)->Float{
+        let ret: Float = Float(degrees)*3.1415926/180.0
+        return ret;
+    }
 }
