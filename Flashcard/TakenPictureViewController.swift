@@ -129,10 +129,21 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
         //list of char to be recognized
         tesseract.setVariableValue("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,!()'|[]-_:;?#%^&*<>/@", forKey: "tessedit_char_whitelist");
         
-        tesseract.image = UIImage(contentsOfFile: NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(pictureName[indexPath.row] as String));
+        tesseract.image = UIImage(contentsOfFile: NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(pictureName[indexPath.row] as String))
         
-        tesseract.recognize();
-        NSLog("%@", tesseract.recognizedText);
+        let progressHUD: MRProgressOverlayView = MRProgressOverlayView.showOverlayAddedTo(self.navigationController?.view, title: "Parsing", mode: MRProgressOverlayViewMode.Indeterminate, animated: true)
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            tesseract.recognize()
+            let str: String = tesseract.recognizedText
+            let strAry: [String] = str.componentsSeparatedByString(" ")
+            dispatch_async(dispatch_get_main_queue(), {
+                progressHUD.dismiss(true, completion: {
+                    let pictureListVC: PictureListViewController = PictureListViewController()
+                    pictureListVC.processStr = strAry
+                    self.navigationController?.pushViewController(pictureListVC, animated: true)
+                })
+            })
+        })
     }
     
     func degreesToRadians(degrees:Float)->Float{

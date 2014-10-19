@@ -58,6 +58,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
         DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (7, 2)")
         DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (8, 2)")
         DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (9, 2)")
+        if (NSUserDefaults.standardUserDefaults().objectForKey("Foreign") == nil) {
+            NSUserDefaults.standardUserDefaults().setObject("zh-TW", forKey: "Foreign")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        // Spanish, French, Tradition Chinese, Simplified Chinese, Japanese
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         

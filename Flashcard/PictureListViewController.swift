@@ -10,26 +10,41 @@ import UIKit
 
 class PictureListViewController: UITableViewController {
     
-    var cardArray:[Card]!
+    var cardArray:[Card]! = []
+    var processStr: [String]! = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.rowHeight = 80
+        self.navigationItem.title = "Results"
+        self.tableView.allowsMultipleSelectionDuringEditing = true
+        self.tableView.editing = true
         
-        let indicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake((UIScreen.mainScreen().bounds.size.width - 44) / 2, 85, 44, 44))
-        self.tableView.addSubview(indicator)
-        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "done")
+    }
+    
+    func done() {
+        let progressHUD: MRProgressOverlayView = MRProgressOverlayView.showOverlayAddedTo(self.navigationController?.view, title: "Saving", mode: MRProgressOverlayViewMode.Indeterminate, animated: true)
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, listId, englishText, foreignText, PicId, favorite FROM Cards")
-            while (rs.next()) {
-                let cardTmp : Card = Card(cardId: Int(rs.intForColumnIndex(0)), text: rs.objectForColumnIndex(1) as String, foreign: rs.objectForColumnIndex(2) as String, pictureId: Int(rs.intForColumnIndex(3)), favorite: Int(rs.intForColumnIndex(4)))
-                self.cardArray.append(cardTmp)
+            let selectedRows = self.tableView.indexPathsForSelectedRows() as [NSIndexPath]
+            for indexPath: NSIndexPath in selectedRows {
+                let lang: NSString = NSUserDefaults.standardUserDefaults().objectForKey("Foreign") as String
+                let str: NSString = "https://www.googleapis.com/language/translate/v2?key=AIzaSyDahysSwvSeyCxfIu99ikcc5iFaJF-Jo_U&q=\(self.processStr[indexPath.row])&source=en&target=\(lang)".stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+                println(str)
+                var err: NSError?
+                let data: NSData? = NSData(contentsOfURL: NSURL(string: str), options: NSDataReadingOptions.DataReadingUncached, error: &err)
+                if (data != nil) {
+                    let dict: NSDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: &err) as NSDictionary
+                    let translated: NSString = ((((dict.objectForKey("data") as NSDictionary).objectForKey("translations") as NSArray)[0] as NSDictionary).objectForKey("translatedText")) as NSString
+                    NSLog(translated)
+                    DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'\(self.processStr[indexPath.row])\', \'\(translated)\', 0)")
+                }
             }
             dispatch_async(dispatch_get_main_queue(), {
-                indicator.removeFromSuperview()
-                self.tableView.reloadData()
+                progressHUD.dismiss(true)
+                self.navigationController?.popToRootViewControllerAnimated(true)
             })
         })
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,20 +61,18 @@ class PictureListViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return self.cardArray.count
+        return processStr.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("CellIdentifier") as? UITableViewCell
         
         if (cell == nil) {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "CellIdentifier")
+            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "CellIdentifier")
         }
         
-        let c: Card = cardArray[indexPath.row] as Card
-        //cell?.imageView?.imageURL = c.pictureId
-        cell?.textLabel?.text = c.text
-        cell?.detailTextLabel?.text = c.foreign
+        cell?.textLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 22)
+        cell?.textLabel?.text = processStr[indexPath.row]
 
         return cell!
     }
