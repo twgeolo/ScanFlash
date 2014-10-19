@@ -80,9 +80,7 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
         if (id > 2) {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addItems")
         } else {
-            //self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Camera"), style: UIBarButtonItemStyle.Done, target: self, action: "showCamera")
-            
-            self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "Switch"), style: UIBarButtonItemStyle.Done, target: self, action: "switchMode"),UIBarButtonItem(image: UIImage(named: "Camera"), style: UIBarButtonItemStyle.Done, target: self, action: "showCamera")];
+            self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "Switch"), style: UIBarButtonItemStyle.Done, target: self, action: "switchMode")];
         }
     }
     
