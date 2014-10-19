@@ -83,6 +83,13 @@ class SideMenuViewController: UITableViewController {
         cell?.backgroundColor = UIColor.clearColor()
         cell?.textLabel?.textColor = UIColor.whiteColor()
         cell?.textLabel?.text = rowNames[indexPath.row].uppercaseString
+        if (indexPath.row == 3) {
+            cell?.textLabel?.text = " Recommended".uppercaseString
+        }
+        
+        let view: UIView = UIView(frame: cell!.bounds)
+        view.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
+        cell?.selectedBackgroundView = view
         
         return cell!
     }

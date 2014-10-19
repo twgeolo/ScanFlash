@@ -29,6 +29,7 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
         switch id{
         case 0:
             // all
+            self.navigationItem.title = "All".uppercaseString
                 let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, listId, englishText, foreignText, PicId, favorite FROM Cards")
                 while (rs.next()) {
                     
@@ -38,6 +39,7 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
                 break;
         case 1:
             //fav
+            self.navigationItem.title = "Favorite".uppercaseString
             let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, listId, englishText, foreignText, PicId, favorite FROM Cards WHERE Cards.favorite = 1")
             while (rs.next()) {
                 
@@ -47,9 +49,14 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
             break;
         case 2:
             //recommended
+            self.navigationItem.title = "Recommended".uppercaseString
             break;
         default:
-            let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, listId, englishText, foreignText, PicId, favorite FROM Cards WHERE listId = \(id-3)")
+            var rs: FMResultSet = DatabaseHelper.executeQuery("SELECT name FROM Lists WHERE id = \(id-3)")
+            while (rs.next()) {
+                self.navigationItem.title = (rs.objectForColumnIndex(0)! as NSString).uppercaseString
+            }
+            rs = DatabaseHelper.executeQuery("SELECT id, listId, englishText, foreignText, PicId, favorite FROM Cards WHERE listId = \(id-3)")
             while (rs.next()) {
                 
                 var cardTmp : Card = Card(cardId: Int(rs.intForColumnIndex(0)), listId: Int(rs.intForColumnIndex(1)), text: rs.objectForColumnIndex(2) as String, foreign: rs.objectForColumnIndex(3) as String, pictureId: Int(rs.intForColumnIndex(4)), favorite: Int(rs.intForColumnIndex(5)))

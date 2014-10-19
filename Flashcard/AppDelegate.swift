@@ -62,7 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
         let navigationController: UINavigationController = UINavigationController()
         navigationController.viewControllers = [viewController]
         navigationController.view.backgroundColor = UIColor.whiteColor()
-        navigationController.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Bold", size: CGFloat(25))]
         return navigationController
     }
     
@@ -101,6 +100,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
             open = false
             slidingViewController?.resetTopViewAnimated(true)
             slidingViewController?.viewWillAppear(true);
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

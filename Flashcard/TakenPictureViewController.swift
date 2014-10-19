@@ -17,6 +17,7 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Gallery".uppercaseString
         
         self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
