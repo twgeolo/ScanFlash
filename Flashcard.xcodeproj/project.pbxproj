@@ -43,6 +43,16 @@
 		5E36FF7919F2E4890001ECC1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF7819F2E4890001ECC1 /* Card.swift */; };
 		5EEC38A719F332C600A9AFC4 /* Wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5EEC38A619F332C600A9AFC4 /* Wallpaper.jpg */; };
 		5EEC396719F3A5B500A9AFC4 /* AddItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC396619F3A5B500A9AFC4 /* AddItemsViewController.swift */; };
+		5EEC398419F3CEF300A9AFC4 /* MRBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC396C19F3CEF300A9AFC4 /* MRBlurView.m */; };
+		5EEC398519F3CEF300A9AFC4 /* UIImage+MRImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC396E19F3CEF300A9AFC4 /* UIImage+MRImageEffects.m */; };
+		5EEC398619F3CEF300A9AFC4 /* MRActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC397119F3CEF300A9AFC4 /* MRActivityIndicatorView.m */; };
+		5EEC398719F3CEF300A9AFC4 /* MRCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC397319F3CEF300A9AFC4 /* MRCircularProgressView.m */; };
+		5EEC398819F3CEF300A9AFC4 /* MRIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC397519F3CEF300A9AFC4 /* MRIconView.m */; };
+		5EEC398919F3CEF300A9AFC4 /* MRNavigationBarProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC397719F3CEF300A9AFC4 /* MRNavigationBarProgressView.m */; };
+		5EEC398A19F3CEF300A9AFC4 /* MRProgressOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC397919F3CEF300A9AFC4 /* MRProgressOverlayView.m */; };
+		5EEC398B19F3CEF300A9AFC4 /* MRStopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC397C19F3CEF300A9AFC4 /* MRStopButton.m */; };
+		5EEC398C19F3CEF300A9AFC4 /* MRMessageInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC398019F3CEF300A9AFC4 /* MRMessageInterceptor.m */; };
+		5EEC398D19F3CEF300A9AFC4 /* MRWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC398319F3CEF300A9AFC4 /* MRWeakProxy.m */; };
 		A63C06AA19F2FF360041329D /* APPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A63C06A719F2FF360041329D /* APPAppDelegate.m */; };
 		A63C06AB19F2FF360041329D /* APPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A63C06A919F2FF360041329D /* APPViewController.m */; };
 /* End PBXBuildFile section */
@@ -117,6 +127,29 @@
 		5E36FF7819F2E4890001ECC1 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5EEC38A619F332C600A9AFC4 /* Wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Wallpaper.jpg; sourceTree = "<group>"; };
 		5EEC396619F3A5B500A9AFC4 /* AddItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemsViewController.swift; sourceTree = "<group>"; };
+		5EEC396B19F3CEF300A9AFC4 /* MRBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBlurView.h; sourceTree = "<group>"; };
+		5EEC396C19F3CEF300A9AFC4 /* MRBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBlurView.m; sourceTree = "<group>"; };
+		5EEC396D19F3CEF300A9AFC4 /* UIImage+MRImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MRImageEffects.h"; sourceTree = "<group>"; };
+		5EEC396E19F3CEF300A9AFC4 /* UIImage+MRImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MRImageEffects.m"; sourceTree = "<group>"; };
+		5EEC397019F3CEF300A9AFC4 /* MRActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRActivityIndicatorView.h; sourceTree = "<group>"; };
+		5EEC397119F3CEF300A9AFC4 /* MRActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRActivityIndicatorView.m; sourceTree = "<group>"; };
+		5EEC397219F3CEF300A9AFC4 /* MRCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCircularProgressView.h; sourceTree = "<group>"; };
+		5EEC397319F3CEF300A9AFC4 /* MRCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCircularProgressView.m; sourceTree = "<group>"; };
+		5EEC397419F3CEF300A9AFC4 /* MRIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRIconView.h; sourceTree = "<group>"; };
+		5EEC397519F3CEF300A9AFC4 /* MRIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRIconView.m; sourceTree = "<group>"; };
+		5EEC397619F3CEF300A9AFC4 /* MRNavigationBarProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRNavigationBarProgressView.h; sourceTree = "<group>"; };
+		5EEC397719F3CEF300A9AFC4 /* MRNavigationBarProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRNavigationBarProgressView.m; sourceTree = "<group>"; };
+		5EEC397819F3CEF300A9AFC4 /* MRProgressOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRProgressOverlayView.h; sourceTree = "<group>"; };
+		5EEC397919F3CEF300A9AFC4 /* MRProgressOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRProgressOverlayView.m; sourceTree = "<group>"; };
+		5EEC397A19F3CEF300A9AFC4 /* MRStopableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRStopableView.h; sourceTree = "<group>"; };
+		5EEC397B19F3CEF300A9AFC4 /* MRStopButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRStopButton.h; sourceTree = "<group>"; };
+		5EEC397C19F3CEF300A9AFC4 /* MRStopButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRStopButton.m; sourceTree = "<group>"; };
+		5EEC397D19F3CEF300A9AFC4 /* MRProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRProgress.h; sourceTree = "<group>"; };
+		5EEC397F19F3CEF300A9AFC4 /* MRMessageInterceptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRMessageInterceptor.h; sourceTree = "<group>"; };
+		5EEC398019F3CEF300A9AFC4 /* MRMessageInterceptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRMessageInterceptor.m; sourceTree = "<group>"; };
+		5EEC398119F3CEF300A9AFC4 /* MRProgressHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRProgressHelper.h; sourceTree = "<group>"; };
+		5EEC398219F3CEF300A9AFC4 /* MRWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRWeakProxy.h; sourceTree = "<group>"; };
+		5EEC398319F3CEF300A9AFC4 /* MRWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRWeakProxy.m; sourceTree = "<group>"; };
 		A63C06A619F2FF360041329D /* APPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPAppDelegate.h; sourceTree = "<group>"; };
 		A63C06A719F2FF360041329D /* APPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPAppDelegate.m; sourceTree = "<group>"; };
 		A63C06A819F2FF360041329D /* APPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPViewController.h; sourceTree = "<group>"; };
@@ -271,6 +304,7 @@
 		5E36FF6B19F2DB7E0001ECC1 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				5EEC396919F3CEF300A9AFC4 /* MRProgress */,
 				A63C06A519F2FF360041329D /* Camera */,
 				5E36FF7119F2E1E00001ECC1 /* AsyncImageView */,
 				5E36FF6D19F2DD960001ECC1 /* libsqlite3.dylib */,
@@ -322,6 +356,60 @@
 				5EEC396619F3A5B500A9AFC4 /* AddItemsViewController.swift */,
 			);
 			name = List;
+			sourceTree = "<group>";
+		};
+		5EEC396919F3CEF300A9AFC4 /* MRProgress */ = {
+			isa = PBXGroup;
+			children = (
+				5EEC396A19F3CEF300A9AFC4 /* Blur */,
+				5EEC396F19F3CEF300A9AFC4 /* Components */,
+				5EEC397D19F3CEF300A9AFC4 /* MRProgress.h */,
+				5EEC397E19F3CEF300A9AFC4 /* Utils */,
+			);
+			path = MRProgress;
+			sourceTree = "<group>";
+		};
+		5EEC396A19F3CEF300A9AFC4 /* Blur */ = {
+			isa = PBXGroup;
+			children = (
+				5EEC396B19F3CEF300A9AFC4 /* MRBlurView.h */,
+				5EEC396C19F3CEF300A9AFC4 /* MRBlurView.m */,
+				5EEC396D19F3CEF300A9AFC4 /* UIImage+MRImageEffects.h */,
+				5EEC396E19F3CEF300A9AFC4 /* UIImage+MRImageEffects.m */,
+			);
+			path = Blur;
+			sourceTree = "<group>";
+		};
+		5EEC396F19F3CEF300A9AFC4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5EEC397019F3CEF300A9AFC4 /* MRActivityIndicatorView.h */,
+				5EEC397119F3CEF300A9AFC4 /* MRActivityIndicatorView.m */,
+				5EEC397219F3CEF300A9AFC4 /* MRCircularProgressView.h */,
+				5EEC397319F3CEF300A9AFC4 /* MRCircularProgressView.m */,
+				5EEC397419F3CEF300A9AFC4 /* MRIconView.h */,
+				5EEC397519F3CEF300A9AFC4 /* MRIconView.m */,
+				5EEC397619F3CEF300A9AFC4 /* MRNavigationBarProgressView.h */,
+				5EEC397719F3CEF300A9AFC4 /* MRNavigationBarProgressView.m */,
+				5EEC397819F3CEF300A9AFC4 /* MRProgressOverlayView.h */,
+				5EEC397919F3CEF300A9AFC4 /* MRProgressOverlayView.m */,
+				5EEC397A19F3CEF300A9AFC4 /* MRStopableView.h */,
+				5EEC397B19F3CEF300A9AFC4 /* MRStopButton.h */,
+				5EEC397C19F3CEF300A9AFC4 /* MRStopButton.m */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		5EEC397E19F3CEF300A9AFC4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5EEC397F19F3CEF300A9AFC4 /* MRMessageInterceptor.h */,
+				5EEC398019F3CEF300A9AFC4 /* MRMessageInterceptor.m */,
+				5EEC398119F3CEF300A9AFC4 /* MRProgressHelper.h */,
+				5EEC398219F3CEF300A9AFC4 /* MRWeakProxy.h */,
+				5EEC398319F3CEF300A9AFC4 /* MRWeakProxy.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		A63C06A519F2FF360041329D /* Camera */ = {
@@ -439,6 +527,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EEC398619F3CEF300A9AFC4 /* MRActivityIndicatorView.m in Sources */,
 				5E36FF6819F2D9AF0001ECC1 /* TakenPictureViewController.swift in Sources */,
 				5E0324CA19F2C48400DA7E19 /* ECSlidingInteractiveTransition.m in Sources */,
 				5E03249D19F2C39200DA7E19 /* ViewController.swift in Sources */,
@@ -447,21 +536,30 @@
 				5E36FF7419F2E1E00001ECC1 /* AsyncImageView.m in Sources */,
 				5E0324CB19F2C48400DA7E19 /* ECSlidingSegue.m in Sources */,
 				5E36FF7919F2E4890001ECC1 /* Card.swift in Sources */,
+				5EEC398719F3CEF300A9AFC4 /* MRCircularProgressView.m in Sources */,
+				5EEC398D19F3CEF300A9AFC4 /* MRWeakProxy.m in Sources */,
+				5EEC398819F3CEF300A9AFC4 /* MRIconView.m in Sources */,
 				5E36FF6519F2D9780001ECC1 /* SCLAlertViewStyleKit.m in Sources */,
 				5E36FF6419F2D9780001ECC1 /* SCLAlertViewResponder.m in Sources */,
 				5E36FF5619F2D9640001ECC1 /* FMDatabaseQueue.m in Sources */,
 				A63C06AA19F2FF360041329D /* APPAppDelegate.m in Sources */,
 				5E36FF6619F2D9780001ECC1 /* SCLButton.m in Sources */,
+				5EEC398919F3CEF300A9AFC4 /* MRNavigationBarProgressView.m in Sources */,
 				5E36FF6A19F2DB6D0001ECC1 /* DatabaseHelper.swift in Sources */,
 				5E36FF5719F2D9640001ECC1 /* FMResultSet.m in Sources */,
 				5E03249B19F2C39200DA7E19 /* AppDelegate.swift in Sources */,
 				5E0324C819F2C48400DA7E19 /* ECPercentDrivenInteractiveTransition.m in Sources */,
+				5EEC398A19F3CEF300A9AFC4 /* MRProgressOverlayView.m in Sources */,
 				5E0324CD19F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m in Sources */,
 				5E36FF5419F2D9640001ECC1 /* FMDatabaseAdditions.m in Sources */,
 				5E0324D019F2C77100DA7E19 /* SideMenuViewController.swift in Sources */,
 				A63C06AB19F2FF360041329D /* APPViewController.m in Sources */,
+				5EEC398519F3CEF300A9AFC4 /* UIImage+MRImageEffects.m in Sources */,
 				5E36FF7619F2E3810001ECC1 /* PictureListViewController.swift in Sources */,
+				5EEC398C19F3CEF300A9AFC4 /* MRMessageInterceptor.m in Sources */,
+				5EEC398419F3CEF300A9AFC4 /* MRBlurView.m in Sources */,
 				5EEC396719F3A5B500A9AFC4 /* AddItemsViewController.swift in Sources */,
+				5EEC398B19F3CEF300A9AFC4 /* MRStopButton.m in Sources */,
 				5E0324D219F2C77B00DA7E19 /* ListViewController.swift in Sources */,
 				5E36FF5519F2D9640001ECC1 /* FMDatabasePool.m in Sources */,
 				5E36FF6319F2D9780001ECC1 /* SCLAlertView.m in Sources */,
