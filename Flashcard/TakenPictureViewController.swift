@@ -110,14 +110,16 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
     // MARK: UICollectionViewDelegate
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        var tesseract:Tesseract = Tesseract();
-        tesseract.language = "eng";
-        tesseract.delegate = self;
-        //list of char to be recognized
-        tesseract.setVariableValue("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", forKey: "tessedit_char_whitelist");
-        tesseract.image = UIImage(contentsOfFile: NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(pictureName[indexPath.row] as String));
-        tesseract.recognize();
-        NSLog("%@", tesseract.recognizedText);
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            var tesseract:Tesseract = Tesseract();
+            tesseract.language = "eng";
+            tesseract.delegate = self;
+            //list of char to be recognized
+            tesseract.setVariableValue("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", forKey: "tessedit_char_whitelist");
+            tesseract.image = UIImage(contentsOfFile: NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(self.pictureName[indexPath.row] as String));
+            tesseract.recognize();
+            NSLog("%@", tesseract.recognizedText);
+        })
     }
 
     func degreesToRadians(degrees:Float)->Float{

@@ -21,7 +21,7 @@ class PictureListViewController: UITableViewController {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, listId, englishText, foreignText, PicId, favorite FROM Cards")
             while (rs.next()) {
-                let cardTmp : Card = Card(cardId: Int(rs.intForColumnIndex(0)), listId: Int(rs.intForColumnIndex(1)), text: rs.objectForColumnIndex(2) as String, foreign: rs.objectForColumnIndex(3) as String, pictureId: Int(rs.intForColumnIndex(4)), favorite: Int(rs.intForColumnIndex(5)))
+                let cardTmp : Card = Card(cardId: Int(rs.intForColumnIndex(0)), text: rs.objectForColumnIndex(1) as String, foreign: rs.objectForColumnIndex(2) as String, pictureId: Int(rs.intForColumnIndex(3)), favorite: Int(rs.intForColumnIndex(4)))
                 self.cardArray.append(cardTmp)
             }
             dispatch_async(dispatch_get_main_queue(), {
