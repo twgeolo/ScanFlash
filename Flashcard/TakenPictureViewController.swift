@@ -10,7 +10,7 @@ import UIKit
 
 let reuseIdentifier = "Cell"
 
-class TakenPictureViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class TakenPictureViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var pictureName: NSMutableArray = NSMutableArray()
     let collectionView: UICollectionView = UICollectionView(frame: CGRectMake(0, 64, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - 64 - 44), collectionViewLayout: UICollectionViewFlowLayout())
@@ -28,10 +28,23 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Camera"), style: UIBarButtonItemStyle.Done, target: self, action: "showCamera")
+        
         let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id FROM Cards")
         while (rs.next()) {
             self.pictureName.addObject("\(rs.objectForColumnIndex(0))")
         }
+    }
+    
+    func showCamera() {
+        
+        var picker : UIImagePickerController  = UIImagePickerController();
+        picker.delegate = self;
+        picker.allowsEditing = true;
+        picker.sourceType = UIImagePickerControllerSourceType.Camera;
+        
+        self.presentViewController(picker, animated: true, completion: { imageP in });
+        
     }
 
     override func didReceiveMemoryWarning() {
