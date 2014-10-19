@@ -82,23 +82,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
         self.window?.rootViewController = slidingViewController
         self.window?.makeKeyAndVisible()
         
-        
-        
-        
-        
-        //tesseract example
-        var tesseract:Tesseract = Tesseract();
-        tesseract.language = "eng";
-        tesseract.delegate = self;
-        //list of char to be recognized
-        tesseract.setVariableValue("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", forKey: "tessedit_char_whitelist");
-        tesseract.image = UIImage(named: "test.png");
-        tesseract.recognize();
-        NSLog("%@", tesseract.recognizedText);
-        
-        
-        
-        
         return true
     }
     

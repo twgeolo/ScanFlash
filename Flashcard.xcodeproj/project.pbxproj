@@ -12,7 +12,6 @@
 		3ADC91CD19F37793004388AB /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADC91CC19F37793004388AB /* TesseractOCR.framework */; };
 		3ADC91CF19F377BD004388AB /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADC91CE19F377BD004388AB /* libstdc++.6.dylib */; };
 		3ADC91D119F377C5004388AB /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADC91D019F377C5004388AB /* CoreImage.framework */; };
-		3ADC91D919F37B24004388AB /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ADC91D819F37B24004388AB /* test.png */; };
 		5E03249B19F2C39200DA7E19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03249A19F2C39200DA7E19 /* AppDelegate.swift */; };
 		5E03249D19F2C39200DA7E19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03249C19F2C39200DA7E19 /* ViewController.swift */; };
 		5E0324A219F2C39200DA7E19 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E0324A119F2C39200DA7E19 /* Images.xcassets */; };
@@ -44,7 +43,6 @@
 		5E36FF7919F2E4890001ECC1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF7819F2E4890001ECC1 /* Card.swift */; };
 		5EEC38A719F332C600A9AFC4 /* Wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5EEC38A619F332C600A9AFC4 /* Wallpaper.jpg */; };
 		5EEC396719F3A5B500A9AFC4 /* AddItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC396619F3A5B500A9AFC4 /* AddItemsViewController.swift */; };
-		5EEC398419F3CEF300A9AFC4 /* MRBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC396C19F3CEF300A9AFC4 /* MRBlurView.m */; };
 		5EEC398519F3CEF300A9AFC4 /* UIImage+MRImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC396E19F3CEF300A9AFC4 /* UIImage+MRImageEffects.m */; };
 		5EEC398619F3CEF300A9AFC4 /* MRActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC397119F3CEF300A9AFC4 /* MRActivityIndicatorView.m */; };
 		5EEC398719F3CEF300A9AFC4 /* MRCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC397319F3CEF300A9AFC4 /* MRCircularProgressView.m */; };
@@ -52,7 +50,6 @@
 		5EEC398919F3CEF300A9AFC4 /* MRNavigationBarProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC397719F3CEF300A9AFC4 /* MRNavigationBarProgressView.m */; };
 		5EEC398A19F3CEF300A9AFC4 /* MRProgressOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC397919F3CEF300A9AFC4 /* MRProgressOverlayView.m */; };
 		5EEC398B19F3CEF300A9AFC4 /* MRStopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC397C19F3CEF300A9AFC4 /* MRStopButton.m */; };
-		5EEC398C19F3CEF300A9AFC4 /* MRMessageInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC398019F3CEF300A9AFC4 /* MRMessageInterceptor.m */; };
 		5EEC398D19F3CEF300A9AFC4 /* MRWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC398319F3CEF300A9AFC4 /* MRWeakProxy.m */; };
 		A63C06AA19F2FF360041329D /* APPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A63C06A719F2FF360041329D /* APPAppDelegate.m */; };
 		A63C06AB19F2FF360041329D /* APPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A63C06A919F2FF360041329D /* APPViewController.m */; };
@@ -74,7 +71,6 @@
 		3ADC91CC19F37793004388AB /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
 		3ADC91CE19F377BD004388AB /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		3ADC91D019F377C5004388AB /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
-		3ADC91D819F37B24004388AB /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		5E03249519F2C39200DA7E19 /* Flashcard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E03249919F2C39200DA7E19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E03249A19F2C39200DA7E19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -211,7 +207,6 @@
 				5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */,
 				5E03249C19F2C39200DA7E19 /* ViewController.swift */,
 				3A28AB2E19F3DAE100B681F1 /* DisplayImageViewController.swift */,
-				3ADC91D819F37B24004388AB /* test.png */,
 				5E0324A119F2C39200DA7E19 /* Images.xcassets */,
 				5E36FF6C19F2DB870001ECC1 /* Helper */,
 				5E36FF7719F2E3840001ECC1 /* Home */,
@@ -508,7 +503,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ADC91CB19F37645004388AB /* tessdata in Resources */,
-				3ADC91D919F37B24004388AB /* test.png in Resources */,
 				5EEC38A719F332C600A9AFC4 /* Wallpaper.jpg in Resources */,
 				5E36FF6219F2D9780001ECC1 /* git.png in Resources */,
 				5E0324A519F2C39200DA7E19 /* LaunchScreen.xib in Resources */,
