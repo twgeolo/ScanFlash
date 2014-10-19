@@ -1,0 +1,4 @@
+To do:
+App name under icon needs to be changed to ScanFlash
+Settings option to change language
+List of all APIs used for PD
