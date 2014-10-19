@@ -114,8 +114,10 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
         tesseract.language = "eng";
         tesseract.delegate = self;
         //list of char to be recognized
-        tesseract.setVariableValue("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", forKey: "tessedit_char_whitelist");
+        tesseract.setVariableValue("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,!()'|[]-_:;?#%^&*<>/@", forKey: "tessedit_char_whitelist");
+        
         tesseract.image = UIImage(contentsOfFile: NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(pictureName[indexPath.row] as String));
+        
         tesseract.recognize();
         NSLog("%@", tesseract.recognizedText);
     }
