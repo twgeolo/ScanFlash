@@ -111,6 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView: UIView = UIView(frame: CGRectMake(0, 0, 280, 160))
+        headerView.backgroundColor = UIColor(red: 32.0/255, green: 32.0/255, blue: 63.0/255, alpha: 1)
         
         let homeBtnView: UIView = UIView(frame: CGRectMake(0, 0, 276, 110))
         homeButton = UIButton(frame: CGRectMake(0, 40, 276, 70))
