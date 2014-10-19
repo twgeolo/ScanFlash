@@ -39,11 +39,12 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     func showCamera() {
-        var picker : UIImagePickerController  = UIImagePickerController();
-        picker.delegate = self;
-        picker.sourceType = UIImagePickerControllerSourceType.Camera;
+        var picker : UIImagePickerController  = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = UIImagePickerControllerSourceType.Camera
         
-        self.presentViewController(picker, animated: true, completion: nil);
+        self.presentViewController(picker, animated: true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
@@ -56,15 +57,20 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
             UIGraphicsEndImageContext();
         }
         
-        let date: NSDate = NSDate()
-        let dateFormatter: NSDateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MM-dd_hh:mm:ss_aa"
-        let dateStr = dateFormatter.stringFromDate(date)
-        DatabaseHelper.executeUpdate("insert into Pictures (desc) values (\'\(dateStr)\')")
-        let picDir = NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(dateStr + ".png")
-        UIImagePNGRepresentation(image).writeToFile(picDir, atomically: true)
-        pictureName.addObject(dateStr + ".png")
-        //self.collectionView.reloadSections(NSIndexSet(index: 0))
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            let date: NSDate = NSDate()
+            let dateFormatter: NSDateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "MM-dd_hh:mm:ss_aa"
+            let dateStr = dateFormatter.stringFromDate(date)
+            DatabaseHelper.executeUpdate("insert into Pictures (desc) values (\'\(dateStr)\')")
+            let picDir = NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(dateStr + ".png")
+            UIImagePNGRepresentation(image).writeToFile(picDir, atomically: true)
+            self.pictureName.addObject(dateStr + ".png")
+            dispatch_async(dispatch_get_main_queue(), {
+                self.collectionView.reloadSections(NSIndexSet(index: 0))
+            })
+        })
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,9 +91,6 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
-        
-        cell.layer.shouldRasterize = true
-        cell.layer.rasterizationScale = UIScreen.mainScreen().scale
         
         for view: UIView in cell.contentView.subviews as [UIView] {
             view.removeFromSuperview()
