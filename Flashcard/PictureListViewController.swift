@@ -26,23 +26,29 @@ class PictureListViewController: UITableViewController {
     func done() {
         let progressHUD: MRProgressOverlayView = MRProgressOverlayView.showOverlayAddedTo(self.navigationController?.view, title: "Saving", mode: MRProgressOverlayViewMode.Indeterminate, animated: true)
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            let selectedRows = self.tableView.indexPathsForSelectedRows() as [NSIndexPath]
-            for indexPath: NSIndexPath in selectedRows {
-                let lang: NSString = NSUserDefaults.standardUserDefaults().objectForKey("Foreign") as String
-                let str: NSString = "https://www.googleapis.com/language/translate/v2?key=AIzaSyDahysSwvSeyCxfIu99ikcc5iFaJF-Jo_U&q=\(self.processStr[indexPath.row])&source=en&target=\(lang)".stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-                println(str)
-                var err: NSError?
-                let data: NSData? = NSData(contentsOfURL: NSURL(string: str), options: NSDataReadingOptions.DataReadingUncached, error: &err)
-                if (data != nil) {
-                    let dict: NSDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: &err) as NSDictionary
-                    let translated: NSString = ((((dict.objectForKey("data") as NSDictionary).objectForKey("translations") as NSArray)[0] as NSDictionary).objectForKey("translatedText")) as NSString
-                    NSLog(translated)
-                    DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'\(self.processStr[indexPath.row])\', \'\(translated)\', 0)")
+            let selectedRows: [NSIndexPath]? = self.tableView.indexPathsForSelectedRows() as? [NSIndexPath]
+            var error: Int = 0
+            if (selectedRows == nil) {
+                error = 1
+            } else {
+                for indexPath: NSIndexPath in selectedRows! {
+                    let lang: NSString = NSUserDefaults.standardUserDefaults().objectForKey("Foreign") as String
+                    let str: NSString = "https://www.googleapis.com/language/translate/v2?key=AIzaSyDahysSwvSeyCxfIu99ikcc5iFaJF-Jo_U&q=\(self.processStr[indexPath.row])&source=en&target=\(lang)".stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+                    println(str)
+                    var err: NSError?
+                    let data: NSData? = NSData(contentsOfURL: NSURL(string: str), options: NSDataReadingOptions.DataReadingUncached, error: &err)
+                    if (data != nil) {
+                        let dict: NSDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: &err) as NSDictionary
+                        let translated: NSString = ((((dict.objectForKey("data") as NSDictionary).objectForKey("translations") as NSArray)[0] as NSDictionary).objectForKey("translatedText")) as NSString
+                        NSLog(translated)
+                        DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'\(self.processStr[indexPath.row])\', \'\(translated)\', 0)")
+                    }
                 }
             }
             dispatch_async(dispatch_get_main_queue(), {
                 progressHUD.dismiss(true)
                 self.navigationController?.popToRootViewControllerAnimated(true)
+                
             })
         })
     }

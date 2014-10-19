@@ -30,11 +30,6 @@
 		5E36FF5519F2D9640001ECC1 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF4D19F2D9640001ECC1 /* FMDatabasePool.m */; };
 		5E36FF5619F2D9640001ECC1 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF4F19F2D9640001ECC1 /* FMDatabaseQueue.m */; };
 		5E36FF5719F2D9640001ECC1 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF5219F2D9640001ECC1 /* FMResultSet.m */; };
-		5E36FF6219F2D9780001ECC1 /* git.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E36FF5919F2D9780001ECC1 /* git.png */; };
-		5E36FF6319F2D9780001ECC1 /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF5B19F2D9780001ECC1 /* SCLAlertView.m */; };
-		5E36FF6419F2D9780001ECC1 /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF5D19F2D9780001ECC1 /* SCLAlertViewResponder.m */; };
-		5E36FF6519F2D9780001ECC1 /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF5F19F2D9780001ECC1 /* SCLAlertViewStyleKit.m */; };
-		5E36FF6619F2D9780001ECC1 /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF6119F2D9780001ECC1 /* SCLButton.m */; };
 		5E36FF6819F2D9AF0001ECC1 /* TakenPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF6719F2D9AF0001ECC1 /* TakenPictureViewController.swift */; };
 		5E36FF6A19F2DB6D0001ECC1 /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF6919F2DB6D0001ECC1 /* DatabaseHelper.swift */; };
 		5E36FF7019F2DE030001ECC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E36FF6D19F2DD960001ECC1 /* libsqlite3.dylib */; };
@@ -51,6 +46,7 @@
 		5E67494719F401C9008A93DF /* MRStopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E67493819F401C9008A93DF /* MRStopButton.m */; };
 		5E67494819F401C9008A93DF /* MRMessageInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E67493C19F401C9008A93DF /* MRMessageInterceptor.m */; };
 		5E67494919F401C9008A93DF /* MRWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E67493F19F401C9008A93DF /* MRWeakProxy.m */; };
+		5E67494C19F40C53008A93DF /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E67494B19F40C53008A93DF /* SCLAlertView.swift */; };
 		5EEC38A719F332C600A9AFC4 /* Wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5EEC38A619F332C600A9AFC4 /* Wallpaper.jpg */; };
 		5EEC396719F3A5B500A9AFC4 /* AddItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC396619F3A5B500A9AFC4 /* AddItemsViewController.swift */; };
 		5EEC39D919F3FE1400A9AFC4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC39D819F3FE1400A9AFC4 /* SettingsViewController.swift */; };
@@ -110,15 +106,6 @@
 		5E36FF5019F2D9640001ECC1 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
 		5E36FF5119F2D9640001ECC1 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		5E36FF5219F2D9640001ECC1 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
-		5E36FF5919F2D9780001ECC1 /* git.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = git.png; sourceTree = "<group>"; };
-		5E36FF5A19F2D9780001ECC1 /* SCLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertView.h; sourceTree = "<group>"; };
-		5E36FF5B19F2D9780001ECC1 /* SCLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertView.m; sourceTree = "<group>"; };
-		5E36FF5C19F2D9780001ECC1 /* SCLAlertViewResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertViewResponder.h; sourceTree = "<group>"; };
-		5E36FF5D19F2D9780001ECC1 /* SCLAlertViewResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewResponder.m; sourceTree = "<group>"; };
-		5E36FF5E19F2D9780001ECC1 /* SCLAlertViewStyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertViewStyleKit.h; sourceTree = "<group>"; };
-		5E36FF5F19F2D9780001ECC1 /* SCLAlertViewStyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewStyleKit.m; sourceTree = "<group>"; };
-		5E36FF6019F2D9780001ECC1 /* SCLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLButton.h; sourceTree = "<group>"; };
-		5E36FF6119F2D9780001ECC1 /* SCLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLButton.m; sourceTree = "<group>"; };
 		5E36FF6719F2D9AF0001ECC1 /* TakenPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakenPictureViewController.swift; sourceTree = "<group>"; };
 		5E36FF6919F2DB6D0001ECC1 /* DatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
 		5E36FF6D19F2DD960001ECC1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -149,6 +136,7 @@
 		5E67493D19F401C9008A93DF /* MRProgressHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRProgressHelper.h; sourceTree = "<group>"; };
 		5E67493E19F401C9008A93DF /* MRWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRWeakProxy.h; sourceTree = "<group>"; };
 		5E67493F19F401C9008A93DF /* MRWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRWeakProxy.m; sourceTree = "<group>"; };
+		5E67494B19F40C53008A93DF /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 		5EEC38A619F332C600A9AFC4 /* Wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Wallpaper.jpg; sourceTree = "<group>"; };
 		5EEC396619F3A5B500A9AFC4 /* AddItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemsViewController.swift; sourceTree = "<group>"; };
 		5EEC39D819F3FE1400A9AFC4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -288,31 +276,15 @@
 			path = fmdb;
 			sourceTree = "<group>";
 		};
-		5E36FF5819F2D9780001ECC1 /* SCLAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				5E36FF5919F2D9780001ECC1 /* git.png */,
-				5E36FF5A19F2D9780001ECC1 /* SCLAlertView.h */,
-				5E36FF5B19F2D9780001ECC1 /* SCLAlertView.m */,
-				5E36FF5C19F2D9780001ECC1 /* SCLAlertViewResponder.h */,
-				5E36FF5D19F2D9780001ECC1 /* SCLAlertViewResponder.m */,
-				5E36FF5E19F2D9780001ECC1 /* SCLAlertViewStyleKit.h */,
-				5E36FF5F19F2D9780001ECC1 /* SCLAlertViewStyleKit.m */,
-				5E36FF6019F2D9780001ECC1 /* SCLButton.h */,
-				5E36FF6119F2D9780001ECC1 /* SCLButton.m */,
-			);
-			path = SCLAlertView;
-			sourceTree = "<group>";
-		};
 		5E36FF6B19F2DB7E0001ECC1 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				5E67494A19F40C53008A93DF /* SCLAlertView */,
 				5E67492519F401C9008A93DF /* MRProgress */,
 				A63C06A519F2FF360041329D /* Camera */,
 				5E36FF7119F2E1E00001ECC1 /* AsyncImageView */,
 				5E36FF6D19F2DD960001ECC1 /* libsqlite3.dylib */,
 				5E0324BA19F2C48400DA7E19 /* ECSlidingViewController */,
-				5E36FF5819F2D9780001ECC1 /* SCLAlertView */,
 				5E36FF4719F2D9640001ECC1 /* FMDB */,
 			);
 			name = Libraries;
@@ -404,6 +376,15 @@
 				5E67493F19F401C9008A93DF /* MRWeakProxy.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		5E67494A19F40C53008A93DF /* SCLAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				5E67494B19F40C53008A93DF /* SCLAlertView.swift */,
+			);
+			name = SCLAlertView;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		5EEC396819F3A5BA00A9AFC4 /* List */ = {
@@ -509,7 +490,6 @@
 			files = (
 				3ADC91CB19F37645004388AB /* tessdata in Resources */,
 				5EEC38A719F332C600A9AFC4 /* Wallpaper.jpg in Resources */,
-				5E36FF6219F2D9780001ECC1 /* git.png in Resources */,
 				5E0324A519F2C39200DA7E19 /* LaunchScreen.xib in Resources */,
 				5E0324A219F2C39200DA7E19 /* Images.xcassets in Resources */,
 			);
@@ -541,19 +521,17 @@
 				5E0324CB19F2C48400DA7E19 /* ECSlidingSegue.m in Sources */,
 				5E67494519F401C9008A93DF /* MRNavigationBarProgressView.m in Sources */,
 				5E36FF7919F2E4890001ECC1 /* Card.swift in Sources */,
-				5E36FF6519F2D9780001ECC1 /* SCLAlertViewStyleKit.m in Sources */,
 				5E67494419F401C9008A93DF /* MRIconView.m in Sources */,
-				5E36FF6419F2D9780001ECC1 /* SCLAlertViewResponder.m in Sources */,
 				5E36FF5619F2D9640001ECC1 /* FMDatabaseQueue.m in Sources */,
 				5E67494719F401C9008A93DF /* MRStopButton.m in Sources */,
 				A63C06AA19F2FF360041329D /* APPAppDelegate.m in Sources */,
-				5E36FF6619F2D9780001ECC1 /* SCLButton.m in Sources */,
 				5E36FF6A19F2DB6D0001ECC1 /* DatabaseHelper.swift in Sources */,
 				5E67494019F401C9008A93DF /* MRBlurView.m in Sources */,
 				5E36FF5719F2D9640001ECC1 /* FMResultSet.m in Sources */,
 				5E03249B19F2C39200DA7E19 /* AppDelegate.swift in Sources */,
 				5E0324C819F2C48400DA7E19 /* ECPercentDrivenInteractiveTransition.m in Sources */,
 				5E0324CD19F2C48400DA7E19 /* UIViewController+ECSlidingViewController.m in Sources */,
+				5E67494C19F40C53008A93DF /* SCLAlertView.swift in Sources */,
 				5E36FF5419F2D9640001ECC1 /* FMDatabaseAdditions.m in Sources */,
 				5E0324D019F2C77100DA7E19 /* SideMenuViewController.swift in Sources */,
 				A63C06AB19F2FF360041329D /* APPViewController.m in Sources */,
@@ -565,7 +543,6 @@
 				5EEC396719F3A5B500A9AFC4 /* AddItemsViewController.swift in Sources */,
 				5E0324D219F2C77B00DA7E19 /* ListViewController.swift in Sources */,
 				5E36FF5519F2D9640001ECC1 /* FMDatabasePool.m in Sources */,
-				5E36FF6319F2D9780001ECC1 /* SCLAlertView.m in Sources */,
 				5E0324C919F2C48400DA7E19 /* ECSlidingAnimationController.m in Sources */,
 				5E67494119F401C9008A93DF /* UIImage+MRImageEffects.m in Sources */,
 			);

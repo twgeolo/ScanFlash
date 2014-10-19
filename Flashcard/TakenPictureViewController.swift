@@ -115,7 +115,9 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
     
     func longTapped(sender: AnyObject) {
         if sender.state == UIGestureRecognizerState.Began {
-            let displayVC: DisplayImageViewController = DisplayImageViewController(image: UIImage(contentsOfFile: NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(pictureName[sender.tag] as String)))
+            let index: Int = (sender as UILongPressGestureRecognizer).view!.tag
+            let path = NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(pictureName[index] as String)
+            let displayVC: DisplayImageViewController = DisplayImageViewController(image: UIImage(contentsOfFile: path))
             self.navigationController?.pushViewController(displayVC, animated: true)
         }
     }
