@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
         DatabaseHelper.executeUpdate("create table if not exists Cards (id INTEGER PRIMARY KEY, englishText TEXT, foreignText TEXT, favorite INT, listId INTEGER, PicId INTEGER)")
         DatabaseHelper.executeUpdate("create table if not exists CL (cid INTEGER, lid INTEGER)")
         DatabaseHelper.executeUpdate("create table if not exists Pictures (id INTEGER PRIMARY KEY, desc TEXT)")
-        DatabaseHelper.executeUpdate("delete from Lists")
+        /*DatabaseHelper.executeUpdate("delete from Lists")
         DatabaseHelper.executeUpdate("delete from Cards")
         DatabaseHelper.executeUpdate("delete from CL")
         DatabaseHelper.executeUpdate("delete from Pictures")
@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
         DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (6, 4)")
         DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (7, 2)")
         DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (8, 2)")
-        DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (9, 2)")
+        DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (9, 2)")*/
         if (NSUserDefaults.standardUserDefaults().objectForKey("Foreign") == nil) {
             NSUserDefaults.standardUserDefaults().setObject("zh-TW", forKey: "Foreign")
             NSUserDefaults.standardUserDefaults().synchronize()

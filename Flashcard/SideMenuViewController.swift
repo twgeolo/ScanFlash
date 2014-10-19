@@ -22,8 +22,7 @@ class SideMenuViewController: UITableViewController {
         settingBtn.tintColor = UIColor.whiteColor()
         settingBtn.frame = CGRectMake(0, 2, 48, 48)
         settingBtn.setImage(UIImage(named: "Settings").imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState: UIControlState.Normal)
-        footerView.addSubview(settingBtn)
-        let copyrightLbl: UILabel = UILabel(frame: CGRectMake(48, 2, 250-48, 48))
+        let copyrightLbl: UILabel = UILabel(frame: CGRectMake(0, 2, 250, 48))
         copyrightLbl.text = "© G. Lo, S. Xu, M. Lee, K. Sawant"
         copyrightLbl.textColor = UIColor.whiteColor()
         copyrightLbl.textAlignment = NSTextAlignment.Right
