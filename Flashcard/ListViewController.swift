@@ -12,6 +12,7 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
     
     var cardArray: [Card]! = []
     var id: Int = 0
+    var mode: Int = 0;
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -78,7 +79,9 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
         } else if (id == 1) {
             self.navigationItem.rightBarButtonItem = nil
         } else {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Camera"), style: UIBarButtonItemStyle.Done, target: self, action: "showCamera")
+            //self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Camera"), style: UIBarButtonItemStyle.Done, target: self, action: "showCamera")
+            
+            self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "Switch"), style: UIBarButtonItemStyle.Done, target: self, action: "switchMode"),UIBarButtonItem(image: UIImage(named: "Camera"), style: UIBarButtonItemStyle.Done, target: self, action: "showCamera")];
         }
     }
     
@@ -126,7 +129,6 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
     }
     
     func showCamera() {
-        
         var picker : UIImagePickerController  = UIImagePickerController();
         picker.delegate = self;
         picker.allowsEditing = true;
@@ -134,6 +136,18 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
         
         self.presentViewController(picker, animated: true, completion: { imageP in });
         
+    }
+    func switchMode() {
+        if (mode == 0){
+            //switch to 1, show English
+            mode = 1
+        }else if (mode == 1){
+            //switch to 2, show Chinese
+            mode = 2
+        }else{
+            //switch to 0, default
+            mode = 0
+        }
     }
     
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
@@ -165,11 +179,21 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
         
         let c: Card = cardArray[indexPath.row]
         cell?.textLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 22)
-        cell?.textLabel?.text = c.text
         cell?.textLabel?.textColor = UIColor.whiteColor()
         cell?.detailTextLabel?.font = UIFont(name: "HelveticaNeue", size: 20)
-        cell?.detailTextLabel?.text = c.foreign
         cell?.detailTextLabel?.textColor = UIColor.whiteColor()
+        
+        
+        if (mode == 0){
+            cell?.textLabel?.text = c.text
+            cell?.detailTextLabel?.text = c.foreign
+        }else if (mode == 1){
+            cell?.textLabel?.text = c.text
+            cell?.detailTextLabel?.text = nil
+        }else{
+            cell?.textLabel?.text = c.foreign
+            cell?.detailTextLabel?.text = nil
+        }
         
         let imageView = UIImageView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 80))
         imageView.tag = kPhotoId
