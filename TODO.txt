@@ -1,7 +1,5 @@
 To do:
-App name under icon needs to be changed to ScanFlash
 Settings category to change language
 Prompting user when first opening account for language
-Star in All category to add to Favorite category
-Plus in All category to add to user created category
-deleting pictures
+Delete Individual and All
+Bugs

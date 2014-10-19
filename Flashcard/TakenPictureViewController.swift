@@ -40,7 +40,6 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
     func showCamera() {
         var picker : UIImagePickerController  = UIImagePickerController()
         picker.delegate = self
-        picker.allowsEditing = true
         picker.sourceType = UIImagePickerControllerSourceType.Camera
         
         self.presentViewController(picker, animated: true, completion: nil)

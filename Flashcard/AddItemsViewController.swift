@@ -62,7 +62,7 @@ class AddItemsViewController: UITableViewController {
     func done() {
         DatabaseHelper.executeUpdate("delete from CL where lid = \(listId)")
         for i in 0...selectedAry.count-1 {
-            DatabaseHelper.executeUpdate("insert into CL (sid, lid) VALUES (\(selectedAry[i]), \(listId))")
+            DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (\(selectedAry[i]), \(listId))")
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
