@@ -147,6 +147,7 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
             //switch to 0, default
             mode = 0
         }
+        self.tableView.reloadData()
     }
     
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
