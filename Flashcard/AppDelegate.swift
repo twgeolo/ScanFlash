@@ -31,6 +31,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
         DatabaseHelper.executeUpdate("create table if not exists Lists (id INTEGER PRIMARY KEY, name TEXT)")
         DatabaseHelper.executeUpdate("create table if not exists Cards (id INTEGER PRIMARY KEY, englishText TEXT, foreignText TEXT, favorite INT, listId INTEGER, PicId INTEGER)")
         DatabaseHelper.executeUpdate("create table if not exists Pictures (id INTEGER PRIMARY KEY, desc TEXT)")
+        DatabaseHelper.executeUpdate("delete from Lists")
+        DatabaseHelper.executeUpdate("delete from Cards")
+        DatabaseHelper.executeUpdate("delete from Pictures")
+        DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'Hackathon\', \'黑客松\', 0)")
+        DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'Apple\', \'蘋果\', 1)")
+        DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'iPhone\', \'愛瘋\', 0)")
+        DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'BMW\', \'寶馬\', 1)")
+        DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'Coke\', \'可樂\', 0)")
+        DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'Microsoft\', \'微軟\', 1)")
+        DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'Flat Design\', \'平面化設計\', 0)")
+        DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'Purdue\', \'普度\', 1)")
+        DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'Video\', \'視屏\', 0)")
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         

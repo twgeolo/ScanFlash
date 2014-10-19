@@ -21,7 +21,6 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
         
         let allFiles: NSArray = NSFileManager.defaultManager().contentsOfDirectoryAtPath(NSHomeDirectory().stringByAppendingPathComponent("Documents"), error: nil)!
         pictureName = NSMutableArray(array: allFiles.filteredArrayUsingPredicate(NSPredicate(format: "self ENDSWITH '.png'", argumentArray: nil)))
-        println(pictureName)
         
         self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -48,16 +47,14 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        picker.dismissViewControllerAnimated(true, completion: nil)
-        var image: UIImage = info["UIImagePickerControllerOriginalImage"] as UIImage
-        if (image.imageOrientation != UIImageOrientation.Up) {
-            UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
-            image.drawInRect(CGRectMake(0, 0, image.size.width, image.size.height))
-            image = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext();
-        }
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+        picker.dismissViewControllerAnimated(true, completion: {
+            var image: UIImage = info["UIImagePickerControllerOriginalImage"] as UIImage
+            if (image.imageOrientation != UIImageOrientation.Up) {
+                UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
+                image.drawInRect(CGRectMake(0, 0, image.size.width, image.size.height))
+                image = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext();
+            }
             let date: NSDate = NSDate()
             let dateFormatter: NSDateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "MM-dd_hh:mm:ss_aa"
@@ -66,9 +63,7 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
             let picDir = NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(dateStr + ".png")
             UIImagePNGRepresentation(image).writeToFile(picDir, atomically: true)
             self.pictureName.addObject(dateStr + ".png")
-            dispatch_async(dispatch_get_main_queue(), {
-                self.collectionView.reloadSections(NSIndexSet(index: 0))
-            })
+            self.collectionView.reloadSections(NSIndexSet(index: 0))
         })
         
     }

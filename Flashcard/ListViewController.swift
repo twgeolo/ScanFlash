@@ -10,7 +10,8 @@ import UIKit
 
 class ListViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var cardArray: [Card]!
+    var cardArray: [Card]! = []
+    var imgCache: NSCache = NSCache()
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -26,23 +27,27 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
     
     init(id: Int){
         super.init()
+        self.tableView.separatorColor = UIColor.clearColor()
         switch id{
         case 0:
             // all
             self.navigationItem.title = "All".uppercaseString
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                 let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, listId, englishText, foreignText, PicId, favorite FROM Cards")
                 while (rs.next()) {
-                    
                     var cardTmp : Card = Card(cardId: Int(rs.intForColumnIndex(0)), listId: Int(rs.intForColumnIndex(1)), text: rs.objectForColumnIndex(2) as String, foreign: rs.objectForColumnIndex(3) as String, pictureId: Int(rs.intForColumnIndex(4)), favorite: Int(rs.intForColumnIndex(5)))
                     self.cardArray.append(cardTmp)
                 }
-                break;
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.reloadData()
+                })
+            })
+            break;
         case 1:
             //fav
             self.navigationItem.title = "Favorite".uppercaseString
             let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, listId, englishText, foreignText, PicId, favorite FROM Cards WHERE Cards.favorite = 1")
             while (rs.next()) {
-                
                 var cardTmp : Card = Card(cardId: Int(rs.intForColumnIndex(0)), listId: Int(rs.intForColumnIndex(1)), text: rs.objectForColumnIndex(2) as String, foreign: rs.objectForColumnIndex(3) as String, pictureId: Int(rs.intForColumnIndex(4)), favorite: Int(rs.intForColumnIndex(5)))
                 self.cardArray.append(cardTmp)
             }
@@ -69,6 +74,8 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
         super.viewDidLoad()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Camera"), style: UIBarButtonItemStyle.Done, target: self, action: "showCamera")
+        
+        self.tableView.rowHeight = 80
     }
 
     override func didReceiveMemoryWarning() {
@@ -97,24 +104,73 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return self.cardArray.count
     }
 
-    /*
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("CellIdentifier") as? UITableViewCell
 
-        // Configure the cell...
+        if (cell == nil) {
+            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "CellIdentifier")
+        }
+        
+        let c: Card = cardArray[indexPath.row]
+        cell?.textLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 22)
+        cell?.textLabel?.text = c.text
+        cell?.textLabel?.textColor = UIColor.whiteColor()
+        cell?.detailTextLabel?.font = UIFont(name: "HelveticaNeue", size: 20)
+        cell?.detailTextLabel?.text = c.foreign
+        cell?.detailTextLabel?.textColor = UIColor.whiteColor()
+        
+        let view = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 80))
+        view.backgroundColor = UIColor(white: 0.1, alpha: 0.7)
+        cell?.backgroundView?.addSubview(view)
+        
+        if (self.imgCache.objectForKey(c.text) == nil) {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                var err: NSError?
+                let data: NSData? = NSData.dataWithContentsOfURL(NSURL(string: "http://pixabay.com/api/?username=cscz3329&key=21481a8de1b2c9ae5950&search_term=\(c.text)&image_type=photo&page=1&per_page=5".stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!), options: NSDataReadingOptions.DataReadingUncached, error: &err)
+                if (data != nil) {
+                    let dict: NSDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: &err) as NSDictionary
+                    if ((dict["hits"] as NSArray).count > 0) {
+                        let imageURL: NSURL = NSURL(string: (((dict["hits"] as NSArray)[0]) as NSDictionary)["previewURL"] as String)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            let imageView = UIImageView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 80))
+                            cell?.backgroundView = imageView
+                            self.imgCache.setObject(UIImage(data: NSData(contentsOfURL: imageURL)), forKey: c.text)
+                            imageView.image = UIImage(data: NSData(contentsOfURL: imageURL))
+                            cell?.backgroundView?.bringSubviewToFront(view)
+                        })
+                    } else {
+                        let imageURL: NSURL = NSURL(string: "http://pixabay.com/static/uploads/photo/2014/09/27/13/46/question-mark-463497_150.jpg")
+                        dispatch_async(dispatch_get_main_queue(), {
+                            let imageView = UIImageView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 80))
+                            cell?.backgroundView = imageView
+                            self.imgCache.setObject(UIImage(data: NSData(contentsOfURL: imageURL)), forKey: c.text)
+                            imageView.image = UIImage(data: NSData(contentsOfURL: imageURL))
+                            cell?.backgroundView?.bringSubviewToFront(view)
+                        })
+                    }
+                }
+            })
+        } else {
+            let imageView = UIImageView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 80))
+            cell?.backgroundView = imageView
+            imageView.image = self.imgCache.objectForKey(c.text) as UIImage
+            let view = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 80))
+            view.backgroundColor = UIColor(white: 0, alpha: 0.5)
+            cell?.backgroundView?.addSubview(view)
+        }
+        
 
-        return cell
+        return cell!
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -160,5 +216,9 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
 
 }
