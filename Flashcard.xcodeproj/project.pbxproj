@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3ADC91CB19F37645004388AB /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 3ADC91CA19F37645004388AB /* tessdata */; };
+		3ADC91CD19F37793004388AB /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADC91CC19F37793004388AB /* TesseractOCR.framework */; };
+		3ADC91CF19F377BD004388AB /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADC91CE19F377BD004388AB /* libstdc++.6.dylib */; };
+		3ADC91D119F377C5004388AB /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADC91D019F377C5004388AB /* CoreImage.framework */; };
+		3ADC91D919F37B24004388AB /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ADC91D819F37B24004388AB /* test.png */; };
 		5E03249B19F2C39200DA7E19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03249A19F2C39200DA7E19 /* AppDelegate.swift */; };
 		5E03249D19F2C39200DA7E19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03249C19F2C39200DA7E19 /* ViewController.swift */; };
 		5E0324A219F2C39200DA7E19 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E0324A119F2C39200DA7E19 /* Images.xcassets */; };
@@ -36,9 +41,7 @@
 		5E36FF7419F2E1E00001ECC1 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF7319F2E1E00001ECC1 /* AsyncImageView.m */; };
 		5E36FF7619F2E3810001ECC1 /* PictureListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF7519F2E3810001ECC1 /* PictureListViewController.swift */; };
 		5E36FF7919F2E4890001ECC1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF7819F2E4890001ECC1 /* Card.swift */; };
-		5E36FF7D19F2F0BF0001ECC1 /* Temporary in Resources */ = {isa = PBXBuildFile; fileRef = 5E36FF7B19F2F0BF0001ECC1 /* Temporary */; };
 		5EEC38A719F332C600A9AFC4 /* Wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5EEC38A619F332C600A9AFC4 /* Wallpaper.jpg */; };
-		5EEC38E019F35B9D00A9AFC4 /* 500x500.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EEC38DF19F35B9D00A9AFC4 /* 500x500.png */; };
 		5EEC38E719F35BCB00A9AFC4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5EEC38E219F35BCB00A9AFC4 /* .gitignore */; };
 		5EEC38E819F35BCB00A9AFC4 /* JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC38E419F35BCB00A9AFC4 /* JMImageCache.m */; };
 		5EEC38E919F35BCB00A9AFC4 /* UIImageView+JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC38E619F35BCB00A9AFC4 /* UIImageView+JMImageCache.m */; };
@@ -57,6 +60,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3ADC91CA19F37645004388AB /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		3ADC91CC19F37793004388AB /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
+		3ADC91CE19F377BD004388AB /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
+		3ADC91D019F377C5004388AB /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		3ADC91D819F37B24004388AB /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		5E03249519F2C39200DA7E19 /* Flashcard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E03249919F2C39200DA7E19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E03249A19F2C39200DA7E19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,9 +117,7 @@
 		5E36FF7319F2E1E00001ECC1 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		5E36FF7519F2E3810001ECC1 /* PictureListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureListViewController.swift; sourceTree = "<group>"; };
 		5E36FF7819F2E4890001ECC1 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		5E36FF7B19F2F0BF0001ECC1 /* Temporary */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Temporary; sourceTree = "<group>"; };
 		5EEC38A619F332C600A9AFC4 /* Wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Wallpaper.jpg; sourceTree = "<group>"; };
-		5EEC38DF19F35B9D00A9AFC4 /* 500x500.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 500x500.png; sourceTree = "<group>"; };
 		5EEC38E219F35BCB00A9AFC4 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5EEC38E319F35BCB00A9AFC4 /* JMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMImageCache.h; sourceTree = "<group>"; };
 		5EEC38E419F35BCB00A9AFC4 /* JMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMImageCache.m; sourceTree = "<group>"; };
@@ -128,6 +134,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ADC91D119F377C5004388AB /* CoreImage.framework in Frameworks */,
+				3ADC91CF19F377BD004388AB /* libstdc++.6.dylib in Frameworks */,
+				3ADC91CD19F37793004388AB /* TesseractOCR.framework in Frameworks */,
 				5E36FF7019F2DE030001ECC1 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +154,10 @@
 		5E03248C19F2C39200DA7E19 = {
 			isa = PBXGroup;
 			children = (
+				3ADC91CE19F377BD004388AB /* libstdc++.6.dylib */,
+				3ADC91D019F377C5004388AB /* CoreImage.framework */,
+				3ADC91CC19F37793004388AB /* TesseractOCR.framework */,
+				3ADC91CA19F37645004388AB /* tessdata */,
 				5E03249719F2C39200DA7E19 /* Flashcard */,
 				5E0324AD19F2C39200DA7E19 /* FlashcardTests */,
 				5E03249619F2C39200DA7E19 /* Products */,
@@ -164,12 +177,11 @@
 			isa = PBXGroup;
 			children = (
 				5EEC38A619F332C600A9AFC4 /* Wallpaper.jpg */,
-				5E36FF7B19F2F0BF0001ECC1 /* Temporary */,
 				5E03249A19F2C39200DA7E19 /* AppDelegate.swift */,
 				5E0324D119F2C77B00DA7E19 /* ListViewController.swift */,
 				5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */,
 				5E03249C19F2C39200DA7E19 /* ViewController.swift */,
-				5EEC38DF19F35B9D00A9AFC4 /* 500x500.png */,
+				3ADC91D819F37B24004388AB /* test.png */,
 				5E0324A119F2C39200DA7E19 /* Images.xcassets */,
 				5E36FF6C19F2DB870001ECC1 /* Helper */,
 				5E36FF7719F2E3840001ECC1 /* Home */,
@@ -413,10 +425,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EEC38E019F35B9D00A9AFC4 /* 500x500.png in Resources */,
+				3ADC91CB19F37645004388AB /* tessdata in Resources */,
 				5EEC38E719F35BCB00A9AFC4 /* .gitignore in Resources */,
+				3ADC91D919F37B24004388AB /* test.png in Resources */,
 				5EEC38A719F332C600A9AFC4 /* Wallpaper.jpg in Resources */,
-				5E36FF7D19F2F0BF0001ECC1 /* Temporary in Resources */,
 				5E36FF6219F2D9780001ECC1 /* git.png in Resources */,
 				5E0324A519F2C39200DA7E19 /* LaunchScreen.xib in Resources */,
 				5E0324A219F2C39200DA7E19 /* Images.xcassets in Resources */,
@@ -579,6 +591,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Flashcard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -590,6 +606,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Flashcard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
