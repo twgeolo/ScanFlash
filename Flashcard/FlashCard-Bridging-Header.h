@@ -12,7 +12,5 @@
 #import "ECSlidingViewController.h"
 #import "FMDB.h"
 #import "AsyncImageView.h"
-#import "JMImageCache.h"
-
 
 #endif

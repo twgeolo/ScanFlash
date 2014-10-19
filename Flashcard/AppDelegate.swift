@@ -113,7 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
         let homeBtnView: UIView = UIView(frame: CGRectMake(0, 0, 276, 110))
         homeButton = UIButton(frame: CGRectMake(0, 40, 276, 70))
         homeButton.backgroundColor = UIColor.clearColor()
-        homeButton.setTitle("FLASHCARD", forState: UIControlState.Normal)
+        homeButton.setTitle("SCANFLASH", forState: UIControlState.Normal)
         homeButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         homeButton.titleLabel?.font = UIFont.systemFontOfSize(36.0)
         homeButton.titleLabel?.textAlignment = NSTextAlignment.Center
