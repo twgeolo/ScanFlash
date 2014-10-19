@@ -10,7 +10,7 @@ import UIKit
 
 let reuseIdentifier = "Cell"
 
-class TakenPictureViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class TakenPictureViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TesseractDelegate {
     
     var pictureName: NSMutableArray = NSMutableArray()
     let collectionView: UICollectionView = UICollectionView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - 0), collectionViewLayout: UICollectionViewFlowLayout())
@@ -115,7 +115,14 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
     // MARK: UICollectionViewDelegate
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        // Did select
+        var tesseract:Tesseract = Tesseract();
+        tesseract.language = "eng";
+        tesseract.delegate = self;
+        //list of char to be recognized
+        tesseract.setVariableValue("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", forKey: "tessedit_char_whitelist");
+        tesseract.image = UIImage(contentsOfFile: NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(pictureName[indexPath.row] as String));
+        tesseract.recognize();
+        NSLog("%@", tesseract.recognizedText);
     }
 
 }
