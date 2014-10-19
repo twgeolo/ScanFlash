@@ -58,6 +58,11 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
         case 2:
             //recommended
             self.navigationItem.title = "Recommended".uppercaseString
+            let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, englishText, foreignText, PicId, favorite FROM Cards ORDER by id desc LIMIT 10")
+            while (rs.next()) {
+                var cardTmp : Card = Card(cardId: Int(rs.intForColumnIndex(0)), text: rs.objectForColumnIndex(1) as String, foreign: rs.objectForColumnIndex(2) as String, pictureId: Int(rs.intForColumnIndex(3)), favorite: Int(rs.intForColumnIndex(4)))
+                self.cardArray.append(cardTmp)
+            }
             break;
         default:
             var rs: FMResultSet = DatabaseHelper.executeQuery("SELECT name FROM Lists WHERE id = \(id-3)")
@@ -73,12 +78,8 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
         }
         if (id > 2) {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addItems")
-        } else if (id == 2) {
-            self.navigationItem.rightBarButtonItem = nil
-        } else if (id == 1) {
-            self.navigationItem.rightBarButtonItem = nil
         } else {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Camera"), style: UIBarButtonItemStyle.Done, target: self, action: "showCamera")
+            self.navigationItem.rightBarButtonItem = nil
         }
     }
     
@@ -93,7 +94,7 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
             } else if (self.id == 1) {
                 rs = DatabaseHelper.executeQuery("SELECT id, englishText, foreignText, PicId, favorite FROM Cards WHERE Cards.favorite = 1")
             } else if (self.id == 2) {
-                
+                rs = DatabaseHelper.executeQuery("SELECT id, englishText, foreignText, PicId, favorite FROM Cards ORDER by id desc LIMIT 10")
             } else {
                 rs = DatabaseHelper.executeQuery("SELECT id, englishText, foreignText, PicId, favorite FROM Cards INNER JOIN CL ON Cards.id = CL.cid WHERE lid = \(self.id-3)")
             }
