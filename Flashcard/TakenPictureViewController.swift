@@ -10,10 +10,11 @@ import UIKit
 
 let reuseIdentifier = "Cell"
 
-class TakenPictureViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TesseractDelegate {
+class TakenPictureViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TesseractDelegate, UIGestureRecognizerDelegate {
     
     var pictureName: NSMutableArray = NSMutableArray()
     let collectionView: UICollectionView = UICollectionView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - 0), collectionViewLayout: UICollectionViewFlowLayout())
+    var imgIndexPath:NSIndexPath!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,7 +104,20 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
         
         cell.contentView.addSubview(imageView)
         
+        let gestureRecognizer: UILongPressGestureRecognizer = UILongPressGestureRecognizer()
+        gestureRecognizer.minimumPressDuration = 1.5
+        gestureRecognizer.addTarget(self, action: "longTapped:")
+        cell.addGestureRecognizer(gestureRecognizer)
+        imgIndexPath = indexPath
+        
         return cell
+    }
+    
+    func longTapped(sender: AnyObject) {
+        if sender.state == UIGestureRecognizerState.Began {
+            let displayVC: DisplayImageViewController = DisplayImageViewController(image: UIImage(contentsOfFile: NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(pictureName[imgIndexPath.row] as String)))
+            self.navigationController?.pushViewController(displayVC, animated: true)
+        }
     }
 
     // MARK: UICollectionViewDelegate
@@ -120,7 +134,7 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
         tesseract.recognize();
         NSLog("%@", tesseract.recognizedText);
     }
-
+    
     func degreesToRadians(degrees:Float)->Float{
         let ret: Float = Float(degrees)*3.1415926/180.0
         return ret;
