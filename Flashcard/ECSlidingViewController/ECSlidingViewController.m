@@ -536,6 +536,7 @@
     return containerViewFrame;
 }
 
+
 - (CGRect)frameFromDelegateForViewController:(UIViewController *)viewController
                              topViewPosition:(ECSlidingViewControllerTopViewPosition)topViewPosition {
     CGRect frame = CGRectInfinite;

@@ -30,10 +30,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
         //DatabaseHelper.executeUpdate("drop table Pictures")
         DatabaseHelper.executeUpdate("create table if not exists Lists (id INTEGER PRIMARY KEY, name TEXT)")
         DatabaseHelper.executeUpdate("create table if not exists Cards (id INTEGER PRIMARY KEY, englishText TEXT, foreignText TEXT, favorite INT, listId INTEGER, PicId INTEGER)")
+        DatabaseHelper.executeUpdate("create table if not exists CL (cid INTEGER, lid INTEGER)")
         DatabaseHelper.executeUpdate("create table if not exists Pictures (id INTEGER PRIMARY KEY, desc TEXT)")
         DatabaseHelper.executeUpdate("delete from Lists")
         DatabaseHelper.executeUpdate("delete from Cards")
+        DatabaseHelper.executeUpdate("delete from CL")
         DatabaseHelper.executeUpdate("delete from Pictures")
+        DatabaseHelper.executeUpdate("insert into Lists(name) VALUES (\'Car\')")
+        DatabaseHelper.executeUpdate("insert into Lists(name) VALUES (\'Etc\')")
+        DatabaseHelper.executeUpdate("insert into Lists(name) VALUES (\'Fruit\')")
+        DatabaseHelper.executeUpdate("insert into Lists(name) VALUES (\'Tech\')")
         DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'Hackathon\', \'黑客松\', 0)")
         DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'Apple\', \'蘋果\', 1)")
         DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'iPhone\', \'愛瘋\', 0)")
@@ -43,6 +49,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
         DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'Flat Design\', \'平面化設計\', 0)")
         DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'Purdue\', \'普度\', 1)")
         DatabaseHelper.executeUpdate("insert into Cards(englishText, foreignText, favorite) VALUES (\'Video\', \'視屏\', 0)")
+        DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (1, 4)")
+        DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (2, 4)")
+        DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (3, 4)")
+        DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (4, 1)")
+        DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (5, 2)")
+        DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (6, 4)")
+        DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (7, 2)")
+        DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (8, 2)")
+        DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (9, 2)")
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
@@ -194,7 +209,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
     }
     
     func addCategory(){
-        let alertview: UIAlertView = UIAlertView(title: "Add Category", message: "Enter Category Name:", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Add")
+        let alertview: UIAlertView = UIAlertView(title: "Add Category", message: "Enter Category Name", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Add")
         alertview.alertViewStyle = UIAlertViewStyle.PlainTextInput
         alertview.show()
     }
