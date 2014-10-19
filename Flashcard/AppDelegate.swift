@@ -19,13 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
     var rowNames: [String]?
     var homeButton: UIButton!
     var addButton: UIButton!
+    
+    let sideMenuVC : SideMenuViewController = SideMenuViewController()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         println(NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String)
-        DatabaseHelper.executeUpdate("drop table Lists")
-        DatabaseHelper.executeUpdate("drop table Cards")
-        DatabaseHelper.executeUpdate("drop table Pictures")
+        //DatabaseHelper.executeUpdate("drop table Lists")
+        //DatabaseHelper.executeUpdate("drop table Cards")
+        //DatabaseHelper.executeUpdate("drop table Pictures")
         DatabaseHelper.executeUpdate("create table if not exists Lists (id INTEGER PRIMARY KEY, name TEXT)")
         DatabaseHelper.executeUpdate("create table if not exists Cards (id INTEGER PRIMARY KEY, englishText TEXT, foreignText TEXT, favorite INT, listId INTEGER, PicId INTEGER)")
         DatabaseHelper.executeUpdate("create table if not exists Pictures (id INTEGER PRIMARY KEY, desc TEXT)")
@@ -43,7 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
         let navigationController: UINavigationController = createNavController(viewController)
         slidingViewController = ECSlidingViewController(topViewController: navigationController)
         
-        let sideMenuVC : SideMenuViewController = SideMenuViewController()
         rowNames = sideMenuVC.rowNames
         sideMenuVC.tableView.delegate = self
         slidingViewController?.underLeftViewController = sideMenuVC
@@ -80,20 +81,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
     // MARK: - Table view delegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let realNames = rowNames {
-            var navigationController: UINavigationController?
+        var navigationController: UINavigationController?
             
-            if (realNames[indexPath.row] as NSString).isEqualToString("Gallery") {
+            if (sideMenuVC.rowNames[indexPath.row] as NSString).isEqualToString("Gallery") {
                 navigationController = createNavController(TakenPictureViewController())
-            } else if (realNames[indexPath.row] as NSString).isEqualToString("All") {
+            } else if (sideMenuVC.rowNames[indexPath.row] as NSString).isEqualToString("All") {
                     navigationController = createNavController(ListViewController(id: 0))
-            } else if (realNames[indexPath.row] as NSString).isEqualToString("Favorite") {
+            } else if (sideMenuVC.rowNames[indexPath.row] as NSString).isEqualToString("Favorite") {
                 navigationController = createNavController(ListViewController(id: 1))
-            } else if (realNames[indexPath.row] as NSString).isEqualToString("Recommended") {
+            } else if (sideMenuVC.rowNames[indexPath.row] as NSString).isEqualToString("Recommended") {
                 navigationController = createNavController(ListViewController(id: 2))
             } else
             {
-                navigationController = createNavController(ListViewController(id: indexPath.row ))
+                navigationController = createNavController(ListViewController(id: indexPath.row))
             }
             
             slidingViewController?.topViewController = navigationController
@@ -101,7 +101,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
             open = false
             slidingViewController?.resetTopViewAnimated(true)
             slidingViewController?.viewWillAppear(true);
-        }
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -112,25 +111,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
         
         let headerView: UIView = UIView(frame: CGRectMake(0, 0, 280, 160))
         
-        let homeBtnView: UIView = UIView(frame: CGRectMake(0, 0, 276, 110 ))
-        let homeBtn: UIButton = UIButton(frame: CGRectMake(0, 0, 276, 110 ))
-        homeButton = homeBtn
-        homeButton.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        let homeBtnView: UIView = UIView(frame: CGRectMake(0, 0, 276, 110))
+        homeButton = UIButton(frame: CGRectMake(0, 40, 276, 70))
+        homeButton.backgroundColor = UIColor.clearColor()
         homeButton.setTitle("FLASHCARD", forState: UIControlState.Normal)
         homeButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        homeButton.titleLabel?.font = UIFont.systemFontOfSize(40.0)
+        homeButton.titleLabel?.font = UIFont.systemFontOfSize(36.0)
         homeButton.titleLabel?.textAlignment = NSTextAlignment.Center
         homeButton.addTarget(UIApplication.sharedApplication().delegate as AppDelegate, action: "homeButtonPressed",forControlEvents: UIControlEvents.TouchUpInside)
-        homeBtnView.addSubview(homeBtn)
+        homeBtnView.addSubview(homeButton)
         
-        let toolbar: UIToolbar = UIToolbar(frame: CGRectMake(0,110,276,50));
-        toolbar.tintColor = UIColor.blackColor()
-        toolbar.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        let addBtn: UIBarButtonItem = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Plain, target: self, action: "addCategory")
+        let toolbar: UIToolbar = UIToolbar(frame: CGRectMake(0,106,276,50))
+        toolbar.tintColor = UIColor.whiteColor()
+        toolbar.setBackgroundImage(UIImage(), forToolbarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
+        toolbar.setShadowImage(UIImage(), forToolbarPosition: UIBarPosition.Any)
+        let addBtn: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addCategory")
         let att: NSDictionary = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Bold", size: 30)]
         addBtn.setTitleTextAttributes(att, forState: UIControlState.Normal)
         let space: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        toolbar.items = [space,addBtn,space]
+        toolbar.items = [space,addBtn]
+        let upperLayer = CALayer()
+        upperLayer.frame = CGRectMake(0, 158, 1000, 1)
+        upperLayer.backgroundColor = UIColor(white: 0.5, alpha: 0.6).CGColor
+        headerView.layer.addSublayer(upperLayer)
         
         headerView.addSubview(toolbar)
         headerView.addSubview(homeBtnView)
@@ -173,8 +176,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UIAl
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         let s = alertView.buttonTitleAtIndex(buttonIndex)
         if (s != "Cancel"){
-            let categoryName = alertView.textFieldAtIndex(0)?.text
-            DatabaseHelper.executeUpdate("INSERT INTO Lists (Name) VALUES (\(categoryName))")
+            let categoryName: NSString = alertView.textFieldAtIndex(0)!.text
+            DatabaseHelper.executeUpdate("INSERT INTO Lists (name) VALUES (\'\(categoryName)\')")
+            sideMenuVC.rowNames.append(categoryName)
+            sideMenuVC.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }
 }

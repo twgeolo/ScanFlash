@@ -37,6 +37,7 @@
 		5E36FF7619F2E3810001ECC1 /* PictureListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF7519F2E3810001ECC1 /* PictureListViewController.swift */; };
 		5E36FF7919F2E4890001ECC1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36FF7819F2E4890001ECC1 /* Card.swift */; };
 		5E36FF7D19F2F0BF0001ECC1 /* Temporary in Resources */ = {isa = PBXBuildFile; fileRef = 5E36FF7B19F2F0BF0001ECC1 /* Temporary */; };
+		5EEC38A719F332C600A9AFC4 /* Wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5EEC38A619F332C600A9AFC4 /* Wallpaper.jpg */; };
 		A63C06AA19F2FF360041329D /* APPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A63C06A719F2FF360041329D /* APPAppDelegate.m */; };
 		A63C06AB19F2FF360041329D /* APPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A63C06A919F2FF360041329D /* APPViewController.m */; };
 /* End PBXBuildFile section */
@@ -105,6 +106,7 @@
 		5E36FF7519F2E3810001ECC1 /* PictureListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureListViewController.swift; sourceTree = "<group>"; };
 		5E36FF7819F2E4890001ECC1 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5E36FF7B19F2F0BF0001ECC1 /* Temporary */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Temporary; sourceTree = "<group>"; };
+		5EEC38A619F332C600A9AFC4 /* Wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Wallpaper.jpg; sourceTree = "<group>"; };
 		A63C06A619F2FF360041329D /* APPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPAppDelegate.h; sourceTree = "<group>"; };
 		A63C06A719F2FF360041329D /* APPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPAppDelegate.m; sourceTree = "<group>"; };
 		A63C06A819F2FF360041329D /* APPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPViewController.h; sourceTree = "<group>"; };
@@ -151,9 +153,9 @@
 		5E03249719F2C39200DA7E19 /* Flashcard */ = {
 			isa = PBXGroup;
 			children = (
+				5EEC38A619F332C600A9AFC4 /* Wallpaper.jpg */,
 				5E36FF7B19F2F0BF0001ECC1 /* Temporary */,
 				5E03249A19F2C39200DA7E19 /* AppDelegate.swift */,
-				5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */,
 				5E0324D119F2C77B00DA7E19 /* ListViewController.swift */,
 				5E0324CF19F2C77100DA7E19 /* SideMenuViewController.swift */,
 				5E03249C19F2C39200DA7E19 /* ViewController.swift */,
@@ -387,6 +389,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EEC38A719F332C600A9AFC4 /* Wallpaper.jpg in Resources */,
 				5E36FF7D19F2F0BF0001ECC1 /* Temporary in Resources */,
 				5E36FF6219F2D9780001ECC1 /* git.png in Resources */,
 				5E0324A519F2C39200DA7E19 /* LaunchScreen.xib in Resources */,

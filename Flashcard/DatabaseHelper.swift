@@ -12,20 +12,16 @@ class DatabaseHelper: NSObject {
     class func executeQuery(queryString: String) -> FMResultSet {
         let db: FMDatabase = FMDatabase(path: NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent("Flashcards.db"))
         var resultSet: FMResultSet = FMResultSet()
-        if (db.open()) {
-            resultSet = db.executeQuery(queryString, withArgumentsInArray: nil)
-        }
-        db.close()
+        db.open()
+        resultSet = db.executeQuery(queryString, withParameterDictionary: NSDictionary())
         return resultSet
     }
     
     class func executeUpdate(updateString: String) -> Bool {
         let db: FMDatabase = FMDatabase(path: NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent("Flashcards.db"))
         var success: Bool = false
-        if (db.open()) {
-            success = db.executeStatements(updateString)
-        }
-        db.close()
+        db.open()
+        success = db.executeUpdate(updateString, withParameterDictionary: NSDictionary())
         return success
     }
 }

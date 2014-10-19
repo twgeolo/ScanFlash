@@ -10,14 +10,14 @@ import UIKit
 
 class SideMenuViewController: UITableViewController {
 
-    var rowNames: [String] = []
+    var rowNames: [String] = ["Gallery", "All", "Favorite", "Recommended"]
 
     override func viewDidLoad() {
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Wallpaper.jpg"))
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         
         let footerView: UIView = UIView(frame: CGRectMake(0, 0, 250, 50))
-        footerView.backgroundColor = UIColor(red: 44.0/255.0, green: 44.0/255.0, blue: 44.0/255.0, alpha: 1)
+        footerView.backgroundColor = UIColor.clearColor()
         let settingBtn: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
         settingBtn.tintColor = UIColor.whiteColor()
         settingBtn.frame = CGRectMake(0, 2, 48, 48)
@@ -30,11 +30,18 @@ class SideMenuViewController: UITableViewController {
         copyrightLbl.font = UIFont(name: "Avenir-Book", size: 15)
         footerView.addSubview(copyrightLbl)
         let upperLayer: CALayer = CALayer()
-        upperLayer.frame = CGRectMake(0, 0, 1000, 2)
+        upperLayer.frame = CGRectMake(0, 0, 1000, 1)
         upperLayer.backgroundColor = UIColor(white: 0.5, alpha: 0.6).CGColor
         footerView.layer.addSublayer(upperLayer)
         self.tableView.tableFooterView = footerView
 
+        let rs: FMResultSet = DatabaseHelper.executeQuery("SELECT id, name FROM Lists")
+        while (rs.next()) {
+            rowNames.append(rs.objectForColumnIndex(1) as String)
+        }
+        
+        self.tableView.rowHeight = 70;
+        self.tableView.separatorColor = UIColor.clearColor()
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,8 +73,17 @@ class SideMenuViewController: UITableViewController {
         if (cell == nil) {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "CellIdentifier")
         }
-        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Bottom)
-
+        
+        cell?.imageView?.image = UIImage(named: rowNames[indexPath.row]).imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        if (indexPath.row > 3) {
+            cell?.imageView?.image = UIImage(named: "DefaultListIcon").imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        }
+        cell?.imageView?.tintColor = UIColor.whiteColor()
+        cell?.textLabel?.font = UIFont(name: "Avenir-Book", size: 18)
+        cell?.backgroundColor = UIColor.clearColor()
+        cell?.textLabel?.textColor = UIColor.whiteColor()
+        cell?.textLabel?.text = rowNames[indexPath.row].uppercaseString
+        
         return cell!
     }
     

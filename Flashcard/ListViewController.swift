@@ -15,7 +15,14 @@ class ListViewController: UITableViewController, UIImagePickerControllerDelegate
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    //(id INTEGER PRIMARY KEY, englishText TEXT, foreignText TEXT, favorite INT, listId INTEGER, PicId INTEGER)
+    
+    override init(style: UITableViewStyle) {
+        super.init(style: UITableViewStyle.Plain)
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
     
     init(id: Int){
         super.init()
