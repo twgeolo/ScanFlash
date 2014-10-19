@@ -120,4 +120,8 @@ class TakenPictureViewController: UIViewController, UICollectionViewDataSource, 
         NSLog("%@", tesseract.recognizedText);
     }
 
+    func degreesToRadians(degrees:Float)->Float{
+        let ret: Float = Float(degrees)*3.1415926/180.0
+        return ret;
+    }
 }
