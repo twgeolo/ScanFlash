@@ -61,8 +61,12 @@ class AddItemsViewController: UITableViewController {
     
     func done() {
         DatabaseHelper.executeUpdate("delete from CL where lid = \(listId)")
+        
+        let selectedRows = self.tableView.indexPathsForSelectedRows() as [NSIndexPath]
+        for indexPath: NSIndexPath in selectedRows {
+            DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (\(indexPath.row + 1), \(listId))")
+        }
         for i in 0...selectedAry.count-1 {
-            DatabaseHelper.executeUpdate("insert into CL (cid, lid) VALUES (\(selectedAry[i]), \(listId))")
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -137,19 +141,6 @@ class AddItemsViewController: UITableViewController {
         })
         
         return cell!
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if ((tableView.cellForRowAtIndexPath(indexPath)?.selected) != nil) {
-            selectedAry.append(indexPath.row)
-        } else {
-            for i in 0...selectedAry.count-1 {
-                if selectedAry[i] == indexPath.row {
-                    selectedAry.removeAtIndex(i)
-                    break
-                }
-            }
-        }
     }
     
 

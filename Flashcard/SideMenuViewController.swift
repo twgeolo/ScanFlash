@@ -24,7 +24,7 @@ class SideMenuViewController: UITableViewController {
         settingBtn.setImage(UIImage(named: "Settings").imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState: UIControlState.Normal)
         footerView.addSubview(settingBtn)
         let copyrightLbl: UILabel = UILabel(frame: CGRectMake(48, 2, 250-48, 48))
-        copyrightLbl.text = "© G. Lo, S. Xu, M. Lee"
+        copyrightLbl.text = "© G. Lo, S. Xu, M. Lee, K. Sawant"
         copyrightLbl.textColor = UIColor.whiteColor()
         copyrightLbl.textAlignment = NSTextAlignment.Right
         copyrightLbl.font = UIFont(name: "Avenir-Book", size: 15)

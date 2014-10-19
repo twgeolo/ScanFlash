@@ -1,5 +1,4 @@
 To do:
-Settings category to change language
-Prompting user when first opening account for language
-Delete Individual and All
-Bugs
+Language
+Favorite
+Settings
