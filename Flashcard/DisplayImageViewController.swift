@@ -1,10 +1,4 @@
-//
-//  DisplayImageViewController.swift
-//  Flashcard
-//
-//  Created by Ming Lee on 10/19/14.
-//  Copyright (c) 2014 Boilermake Fall 2014. All rights reserved.
-//
+
 
 import UIKit
 
