@@ -1,4 +1,4 @@
-ScanFlash
+iScan
 =========
 
 Are you ever nervous to go to a foreign country where you don't know the language? Then this is just the application for you!
