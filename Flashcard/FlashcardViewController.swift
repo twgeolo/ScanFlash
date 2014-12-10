@@ -1,10 +1,3 @@
-//
-//  FlashcardViewController.swift
-//  Flashcard
-//
-//  Created by wellxchen on 14-10-18.
-//  Copyright (c) 2014年 Boilermake Fall 2014. All rights reserved.
-//
 
 import UIKit
 
