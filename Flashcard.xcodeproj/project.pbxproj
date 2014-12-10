@@ -456,10 +456,11 @@
 				TargetAttributes = {
 					5E03249419F2C39200DA7E19 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = ZP97V36F9T;
+						DevelopmentTeam = 8CGU65GCR4;
 					};
 					5E0324A919F2C39200DA7E19 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 8CGU65GCR4;
 						TestTargetID = 5E03249419F2C39200DA7E19;
 					};
 				};
